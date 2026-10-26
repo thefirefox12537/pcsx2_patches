@@ -1,0 +1,264 @@
+gametitle=Gran Turismo 4 Online Public Beta [SCUS-97436] (U) crc=32A1C752
+
+[Autoboot in 16:9]
+author=thefirefox12537 (Ported from CRASHARKI)
+description=Enable Native Widescreen when the game is startup.
+; Force Aspect Ratio option to 16:9
+patch=1,EE,006655A0,byte,1
+patch=1,EE,0099C3A4,byte,1
+; The Monitor from Secret options it cannot you modify manually:
+patch=1,EE,0099C3BC,word,438A05E3 // Distance view (in mm)
+patch=1,EE,0099C3C0,word,43D48000 // Screen width (in mm)
+patch=1,EE,0099C3C4,word,43700000 // Screen height (in mm)
+
+[Widescreen 16:9]
+author=Aero_
+description=Corrects the text aspect ratio when 16:9 is selected in the options menu.
+gsaspectratio=16:9
+patch=1,EE,2033D7DC,extended,3C013F40 // lui at, 0x3F40
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Widescreen 16:9 (Safe Area)]
+author=Silentwarior112 & Aero_
+description=90% margin safe area on HUD.
+gsaspectratio=16:9
+patch=1,EE,001C1334,short,3F88 // HUD safe area
+patch=1,EE,001C115C,short,01F2 // Text height
+patch=1,EE,001C519C,word,3C013F2D // Text width
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013F40 // lui at, 0x3F40
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Widescreen 16:10]
+author=Silentwarior112 & Aero_
+description=Widescreen Patch Hacks to aspect ratio 16:10.
+gsaspectratio=Stretch
+patch=1,EE,00353604,word,3C013F55 // ModelFaces
+patch=1,EE,0099C3C8,word,3F68AB7E // Aspect to 0.90
+patch=1,EE,0099C3CC,word,3F68AB7E // Overscan Factor to 0.90
+patch=1,EE,001C113C,short,4405 // HUD height
+patch=1,EE,001C517C,short,C356 // HUD vertical position
+patch=1,EE,001C115C,short,01F2 // Text height
+patch=1,EE,001EB63C,short,0215 // Rearview mirror height
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013F63 // lui at, 0x3F63
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Ultrawidescreen 20:9]
+author=Silentwarior112, Aero_ & thefirefox12537
+description=Widescreen Patch Hacks to aspect ratio 20:9.
+gsaspectratio=Stretch
+patch=1,EE,00353604,word,3C013F1A // ModelFaces
+patch=1,EE,0099C3C8,word,3FA03F4F // Aspect to 1.25
+patch=1,EE,001C10FC,word,3C01C41D // HUD canvas
+patch=1,EE,001C1130,word,3C0143D2
+patch=1,EE,001C519C,word,3C013F1A // HUD text width
+patch=1,EE,001EB65C,short,0320 // Rearview mirror width
+patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
+patch=1,EE,00102408,word,3C01C3C8
+patch=1,EE,001028C0,word,3C01C380 // Loading image
+patch=1,EE,001028C8,word,3C014380
+patch=1,EE,001028B0,word,3C01C3C8
+patch=1,EE,001028B8,word,3C0143C8
+//patch=1,EE,0033F4E0,word,3C014485 // Optional: Pause Menu & B-Spec Monitor
+//patch=1,EE,001FDD4C,word,3C014485
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013F24 // lui at, 0x3F24
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Ultrawidescreen 21:9]
+author=Silentwarior112 & Aero_
+description=Widescreen Patch Hacks to aspect ratio 21:9.
+gsaspectratio=Stretch
+patch=1,EE,00353604,word,3C013F12 // ModelFaces
+patch=1,EE,0099C3C8,word,3FA8427E // Aspect to 1.31
+patch=1,EE,001C10FC,word,3C01C429 // HUD canvas
+patch=1,EE,001C1130,word,3C0143DF
+patch=1,EE,001C519C,word,3C013F12 // HUD text width
+//patch=1,EE,001EB65C,short,0348 // Rearview mirror width (optional)
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028C0,word,3C01C374 // Loading image
+patch=1,EE,001028C8,word,3C014374
+patch=1,EE,001028B0,word,3C01C3D2
+patch=1,EE,001028B8,word,3C0143D2
+//patch=1,EE,0033F4E0,word,3C01448C // Optional: Pause Menu & B-Spec Monitor
+//patch=1,EE,001FDD4C,word,3C01448C
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013F1C // lui at, 0x3F24
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Ultrawidescreen 32:9]
+author=Silentwarior112 & Aero_
+description=Widescreen Patch Hacks to aspect ratio 32:9.
+gsaspectratio=Stretch
+patch=1,EE,00353604,word,3C013EC0 // ModelFaces
+patch=1,EE,0099C3C8,word,40000000 // Aspect to 2.00
+patch=1,EE,001C10FC,word,3C01C4A0 // HUD canvas
+patch=1,EE,001C1130,word,3C01443B
+patch=1,EE,001C519C,word,3C013EC0 // HUD text width
+patch=1,EE,001EB65C,short,03CF // Rearview mirror width
+patch=1,EE,001023E8,word,3C014420 // Loading spinner
+patch=1,EE,00102408,word,3C01C420
+patch=1,EE,001028C0,word,3C01C320 // Loading image
+patch=1,EE,001028C8,word,3C014320
+patch=1,EE,001028B0,word,3C01C420
+patch=1,EE,001028B8,word,3C014420
+//patch=1,EE,0033F4E0,word,3C0144D6 // Optional: Pause Menu & B-Spec Monitor
+//patch=1,EE,001FDD4C,word,3C0144D6
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013ECD // lui at, 0x3ECD
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[Ultrawidescreen 48:9]
+author=Silentwarior112 & Aero_
+description=Widescreen Patch Hacks to aspect ratio 48:9.
+gsaspectratio=Stretch
+patch=1,EE,00353604,word,3C013E80 // ModelFaces
+patch=1,EE,0099C3C8,word,40400000 // Aspect to 3.00
+patch=1,EE,001C10FC,word,3C01C507 // HUD canvas
+patch=1,EE,001C1130,word,3C014495
+patch=1,EE,001C519C,word,3C013E80 // HUD text width
+patch=1,EE,001EB65C,short,05B7 // Rearview mirror width
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028C0,word,3C01C374 // Loading image
+patch=1,EE,001028C8,word,3C014374
+patch=1,EE,001028B0,word,3C01C3D2
+patch=1,EE,001028B8,word,3C0143D2
+//patch=1,EE,0033F4E0,word,3C01448C // Optional: Pause Menu & B-Spec Monitor
+//patch=1,EE,001FDD4C,word,3C01448C
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013E89 // lui at, 0x3E89
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
+[No Interlacing]
+author=Duchi/Vyerq & Silentwarior112
+gsinterlacemode=1
+; Progressive scan mode in Menus to disable interlaced offset rendering
+patch=1,EE,0059F25C,extended,0000102D
+; Progressive scan mode in Races to reduce blur and sharpen image rendering
+patch=1,EE,0099DAA8,byte,1
+patch=1,EE,D06655E4,extended,1
+patch=1,EE,006655E4,extended,2
+
+[EE Clamping Fix]
+author=kozarovv
+description=An attempt to solve some of the bugs caused by the normal clamping mode in PCSX2.
+// This patch can be worked on older PCSX2 version or AetherSX2/NetherSX2
+patch=1,EE,E0022CC4,extended,0101E84E
+patch=1,EE,2101E840,extended,0803FF00
+patch=1,EE,2101E844,extended,240f0008
+patch=1,EE,000FFC00,double,3739ffff3c197fff
+patch=1,EE,000FFC08,double,24187f7f8ca30000
+patch=1,EE,000FFC10,double,a4b8000250790001
+patch=1,EE,000FFC18,double,540ffffa25efffff
+patch=1,EE,000FFC20,double,24a5ffe424a50004
+patch=1,EE,000FFC28,double,08407a1278a30000
+patch=1,EE,000FFC30,double,0000000024c6ffe0
+
+[Full Trigger Sensitivity]
+author=Silent & Aero_
+description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
+; Throttle
+patch=1,EE,10319114,extended,00000062
+patch=1,EE,20319194,extended,00000000
+; Brake
+patch=1,EE,1031911C,extended,00000062
+patch=1,EE,203191F0,extended,00000000
+
+[Reduce Vibration]
+author=Aero_
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,2023149C,extended,3C014170 // lui at,0x4170 : Vibration Float
+
+[360° View Chase Camera]
+author=Nenkai (Ported from Duchi/Vyerq)
+description=When looking backwards, the camera can be rotated horizontally with right analog stick.
+; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x206488
+patch=1,EE,20206488,extended,0C03C440
+; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89008A
+patch=1,EE,200F1100,extended,3C0F008A
+patch=1,EE,200F1104,extended,91EFB0DE
+; New extra logic (passing stick value into diffAngle())
+patch=1,EE,200F1108,extended,25EFFF81
+patch=1,EE,200F110C,extended,448FF000
+patch=1,EE,200F1110,extended,4680F7A0
+patch=1,EE,200F1114,extended,3C0F3CC9
+patch=1,EE,200F1118,extended,448FF800
+patch=1,EE,200F111C,extended,461FF7C2
+; jump to diffAngle() (will be returing to $ra afterwards to original function body computeViewAngle())
+patch=1,EE,200F1120,extended,0808C3C0
+patch=1,EE,200F1124,extended,460DFB40
+; Disable right analog stick function on Throttle/Brake
+patch=1,EE,104387CE,extended,1000
+patch=1,EE,104387F6,extended,1000
+
+[Loose Chase Camera]
+author=Silent
+description=Makes the exterior camera looser when turn like GT3 A-Spec.
+; Default parameters in this cheat correspond to the values from GT4 First Preview,
+; but you may freely customize them. For example, if you want to make the camera
+; even stiffer (like in GT5/6), increase the damper value.
+;
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,106635DA,extended,1E1E // 30.0. Default - 120.0
+patch=1,EE,106635DC,extended,1E1E
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,106635DE,extended,0A0A // 10.0. Default - 15.0
+patch=1,EE,106635E0,extended,0A0A
+
+[High Chase Camera]
+author=TheAdmiester
+description=Added GT4 First Preview camera mode.
+; Swap 4-byte instructions to 2-byte ones to make space
+patch=1,EE,2023F37C,extended,84E30000
+patch=1,EE,1023F380,extended,0002
+patch=1,EE,1023F390,extended,0004
+patch=1,EE,2023F3A0,extended,84E30000
+patch=1,EE,1023F3B0,extended,0004
+patch=1,EE,0023F3C8,extended,40
+patch=1,EE,1023F3DA,extended,8442
+patch=1,EE,20662B30,extended,00010000
+patch=1,EE,20662B34,extended,00060014
+
+[60 FPS]
+author=PeterDelta & Duchi/Vyerq
+description=Unlock the motion races or menus it not the 60 FPS.
+patch=1,EE,00665794,extended,01 // Photo Mode
+patch=1,EE,202AC2FC,extended,01 // Pit Crew
+
+[Remove Boke-blur Effects]
+author=Duchi/Vyerq
+description=Remove the boke-blur effects on Replay Mode.
+patch=1,EE,201EAAEC,word,0
+patch=1,EE,201EAC40,word,0
+
+[Remove Mirage Effects]
+author=Duchi/Vyerq
+description=Removes the mirage effects of the objects on Replay Mode.
+patch=1,EE,201EBC74,word,0
+
+[Remove Bumper Pitching/Crash Effects]
+author=TheAdmiester
+description=Removes the pitching and blurry shaking crash effects from bumper chase camera.
+patch=1,EE,2020B594,extended,03E00008
+patch=1,EE,2020B744,extended,14000006
+
+[Remove Car Lights Flare]
+author=TheAdmiester
+description=Removes the lens flare cast from all cars taillight/headlight.
+patch=1,EE,201BF650,extended,03E00008
+patch=1,EE,201BF654,extended,00000000
+
+[Remove Track Lights Flare]
+author=TheAdmiester
+description=Removes the lens flare that appear on light sources on evening/night tracks.
+patch=1,EE,2029D590,extended,03E00008
+patch=1,EE,2029D594,extended,00000000
+
+[Remove Sun Ray Flare]
+author=TheAdmiester
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,2029E758,extended,03E00008
+patch=1,EE,2029E75C,extended,00000000

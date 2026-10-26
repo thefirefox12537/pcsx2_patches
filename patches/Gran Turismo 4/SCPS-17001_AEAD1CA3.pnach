@@ -1,0 +1,166 @@
+gametitle=Gran Turismo 4 [SCPS-17001] (J) crc=AEAD1CA3
+
+[Autoboot in 16:9]
+author=thefirefox12537 (Ported from CRASHARKI)
+description=Enable Native Widescreen when the game is startup.
+; Force Aspect Ratio option to 16:9
+patch=1,EE,0060FA70,byte,1
+patch=1,EE,00AB33C4,byte,1
+; The Monitor from Secret options it cannot you modify manually:
+patch=1,EE,00AB33DC,word,438A05E3 // Distance view (in mm)
+patch=1,EE,00ABB3E0,word,43D48000 // Screen width (in mm)
+patch=1,EE,00ABB3E4,word,43700000 // Screen height (in mm)
+
+[Ultrawidescreen 20:9]
+author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
+gsaspectratio=Stretch
+patch=1,EE,00107324,word,3C013F1A // ModelFaces
+patch=1,EE,00AB33E8,word,3FA03F4F // 3D Rendering "Aspect" to 1.25
+
+[Ultrawidescreen 21:9]
+author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 21:9.
+gsaspectratio=Stretch
+patch=1,EE,00107324,word,3C013F12 // ModelFaces
+patch=1,EE,00AB33E8,word,3FA8427E // 3D Rendering "Aspect" to 1.31
+
+[Ultrawidescreen 32:9]
+author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 32:9.
+gsaspectratio=Stretch
+patch=1,EE,00107324,word,3C013EC0 // ModelFaces
+patch=1,EE,00AB33E8,word,40000000 // 3D Rendering "Aspect" to 2.00
+
+[Ultrawidescreen 48:9]
+author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 48:9.
+gsaspectratio=Stretch
+patch=1,EE,00107324,word,3C013E80 // ModelFaces
+patch=1,EE,00AB33E8,word,40400000 // 3D Rendering "Aspect" to +2.00
+
+[No Interlacing]
+author=Duchi/Vyerq & Silentwarior112
+gsinterlacemode=1
+; Progressive scan mode in Menus to disable interlaced offset rendering
+patch=1,EE,0049AA2C,extended,0000102D
+; Progressive scan mode in Races to reduce blur and sharpen image rendering
+patch=1,EE,00AB4A78,byte,1
+patch=1,EE,D060FAB4,extended,1
+patch=1,EE,0060FAB4,extended,2
+
+[EE Clamping Fix]
+author=kozarovv
+description=An attempt to solve some of the bugs caused by the normal clamping mode in PCSX2.
+patch=1,EE,E0022CC4,extended,0101E84E
+patch=1,EE,2101E840,extended,0803FF00
+patch=1,EE,2101E844,extended,240F0008
+patch=1,EE,000FFC00,double,3739FFFF3C197FFF
+patch=1,EE,000FFC08,double,24187F7F8CA30000
+patch=1,EE,000FFC10,double,A4B8000250790001
+patch=1,EE,000FFC18,double,540FFFFA25EFFFFF
+patch=1,EE,000FFC20,double,24A5FFE424A50004
+patch=1,EE,000FFC28,double,08407A1278A30000
+patch=1,EE,000FFC30,double,0000000024C6FFE0
+
+[Full Trigger Sensitivity]
+author=Silentwarior112 (Ported from Silent & Aero_)
+description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
+; Throttle
+patch=1,EE,104347CC,extended,00000062
+patch=1,EE,204347C0,extended,00000000
+; Brake
+patch=1,EE,1043482C,extended,00000062
+patch=1,EE,20434820,extended,00000000
+; E-Brake
+patch=1,EE,1043488C,extended,00000062
+patch=1,EE,20434880,extended,00000000
+; Reverse
+patch=1,EE,104348E8,extended,00000062
+patch=1,EE,204348E0,extended,00000000
+
+[360° View Chase Camera]
+author=Duchi/Vyerq
+description=When looking backwards, the camera can be rotated horizontally with right analog stick.
+; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x33FE888
+patch=1,EE,2033FE88,extended,0C03C440
+; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89715E
+patch=1,EE,200F1100,extended,3C0F0086
+patch=1,EE,200F1104,extended,91EF715E
+; New extra logic (passing stick value into diffAngle())
+patch=1,EE,200F1108,extended,25EFFF81
+patch=1,EE,200F110C,extended,448FF000
+patch=1,EE,200F1110,extended,4680F7A0
+patch=1,EE,200F1114,extended,3C0F3CC9
+patch=1,EE,200F1118,extended,448FF800
+patch=1,EE,200F111C,extended,461FF7C2
+; jump to diffAngle() (will be returing to $ra afterwards to original function body computeViewAngle())
+patch=1,EE,200F1120,extended,080D9C44
+patch=1,EE,200F1124,extended,460DFB40
+; Disable right analog stick function on Throttle/Brake
+patch=1,EE,20431176,short,1000
+patch=1,EE,2043119E,short,1000
+
+[Loose Chase Camera]
+author=Silentwarior112 (Ported from Silent)
+description=Makes the exterior camera looser when turn like GT3 A-Spec.
+; Default parameters in this cheat correspond to the values from GT4 First Preview,
+; but you may freely customize them. For example, if you want to make the camera
+; even stiffer (like in GT5/6), increase the damper value.
+;
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,20695A08,extended,41F00000 // 30.0. Default - 120.0
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,20695A14,extended,41200000 // 10.0. Default - 15.0
+
+[60 FPS]
+author=PeterDelta & Duchi/Vyerq
+description=Unlock the motion races or menus it not the 60 FPS.
+patch=1,EE,0060FC64,extended,01 // Photo Mode
+patch=1,EE,203CB134,extended,01 // Pit Crew
+
+[Remove Boke-blur Effects]
+author=Duchi/Vyerq
+description=Removes boke-blur effects on Replay Mode.
+patch=1,EE,20338F34,word,0
+patch=1,EE,20339088,word,0
+
+[Remove Mirage Effects]
+author=Duchi/Vyerq
+description=Removes the mirage effects of the objects on Replay Mode.
+patch=1,EE,20339EBC,word,0
+
+[Remove Bumper Pitching/Crash Effects]
+author=Duchi/Vyerq
+description=Removes the pitching and blurry shaking crash effect from bumper chase camera.
+patch=1,EE,20337134,short,0
+patch=1,EE,2037F452,short,AC80
+
+[Remove Car Lights Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare cast from all cars taillight/headlight.
+patch=1,EE,2033CF78,extended,03E00008
+patch=1,EE,2033CF7C,extended,00000000
+
+[Remove Track Lights Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on light sources on evening/night tracks.
+patch=1,EE,2033D0B8,extended,03E00008
+patch=1,EE,2033D0BC,extended,00000000
+
+[Remove Sun Ray Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,203922C8,extended,03E00008
+patch=1,EE,203922CC,extended,00000000
+
+[FoV Adjustment]
+author=Duchi/Vyerq
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D0643894,extended,0000FFEB
+patch=1,EE,30200001,extended,003745AC
+patch=1,EE,D0643894,extended,0000FFBB
+patch=1,EE,30300001,extended,003745AC
+patch=1,EE,D0643894,extended,0000FFF9
+patch=1,EE,203745AC,extended,3C013F80
