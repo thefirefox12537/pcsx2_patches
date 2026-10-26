@@ -3,7 +3,7 @@ gametitle=Gran Turismo 4 Online Public Beta [SCUS-97436] (U) crc=32A1C752
 [Autoboot in 16:9]
 author=thefirefox12537 (Ported from CRASHARKI)
 description=Enable Native Widescreen when the game is startup.
-; Force Aspect Ratio option to 16:9
+; Force Aspect Ratio option to 16:9 (It bugged on 4:3 text for new game when startup)
 patch=1,EE,006655A0,byte,1
 patch=1,EE,0099C3A4,byte,1
 ; The Monitor from Secret options it cannot you modify manually:
@@ -141,21 +141,7 @@ patch=1,EE,0059F25C,extended,0000102D
 patch=1,EE,0099DAA8,byte,1
 patch=1,EE,D06655E4,extended,1
 patch=1,EE,006655E4,extended,2
-
-[EE Clamping Fix]
-author=kozarovv
-description=An attempt to solve some of the bugs caused by the normal clamping mode in PCSX2.
-// This patch can be worked on older PCSX2 version or AetherSX2/NetherSX2
-patch=1,EE,E0022CC4,extended,0101E84E
-patch=1,EE,2101E840,extended,0803FF00
-patch=1,EE,2101E844,extended,240f0008
-patch=1,EE,000FFC00,double,3739ffff3c197fff
-patch=1,EE,000FFC08,double,24187f7f8ca30000
-patch=1,EE,000FFC10,double,a4b8000250790001
-patch=1,EE,000FFC18,double,540ffffa25efffff
-patch=1,EE,000FFC20,double,24a5ffe424a50004
-patch=1,EE,000FFC28,double,08407a1278a30000
-patch=1,EE,000FFC30,double,0000000024c6ffe0
+; The game started still blurry, but in races will auto start in Progressive scan mode  
 
 [Full Trigger Sensitivity]
 author=Silent & Aero_
@@ -191,8 +177,8 @@ patch=1,EE,200F111C,extended,461FF7C2
 patch=1,EE,200F1120,extended,0808C3C0
 patch=1,EE,200F1124,extended,460DFB40
 ; Disable right analog stick function on Throttle/Brake
-patch=1,EE,104387CE,extended,1000
-patch=1,EE,104387F6,extended,1000
+patch=1,EE,1031494E,short,1000
+patch=1,EE,10314976,short,1000
 
 [Loose Chase Camera]
 author=Silent
@@ -222,11 +208,10 @@ patch=1,EE,1023F3DA,extended,8442
 patch=1,EE,20662B30,extended,00010000
 patch=1,EE,20662B34,extended,00060014
 
-[60 FPS]
-author=PeterDelta & Duchi/Vyerq
-description=Unlock the motion races or menus it not the 60 FPS.
-patch=1,EE,00665794,extended,01 // Photo Mode
-patch=1,EE,202AC2FC,extended,01 // Pit Crew
+[Pit Crew Motion]
+author=Duchi/Vyerq
+description=Unlocks the FPS for Pit Crews.
+patch=1,EE,202AC2FC,extended,01
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq
@@ -262,3 +247,14 @@ author=TheAdmiester
 description=Removes the lens flare that appear on some tracks when facing the sun ray.
 patch=1,EE,2029E758,extended,03E00008
 patch=1,EE,2029E75C,extended,00000000
+
+[FoV Adjustment]
+author=Blitznoz (Original from Duchi/Vyerq)
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D0681344,extended,0000FFEB
+patch=1,EE,30200002,extended,0023E814
+patch=1,EE,D0681344,extended,0000FFBB
+patch=1,EE,30300002,extended,0023E814
+patch=1,EE,D0681344,extended,0000FFF9
+patch=1,EE,2023E814,extended,3C013F80
