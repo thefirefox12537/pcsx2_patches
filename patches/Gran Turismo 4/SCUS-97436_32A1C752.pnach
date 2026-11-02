@@ -4,12 +4,12 @@ gametitle=Gran Turismo 4 Online Public Beta [SCUS-97436] (U) crc=32A1C752
 author=thefirefox12537 (Ported from CRASHARKI)
 description=Enable Native Widescreen when the game is startup.
 ; Force Aspect Ratio option to 16:9 (It bugged on 4:3 text for new game when startup)
-patch=1,EE,006655A0,byte,1
-patch=1,EE,0099C3A4,byte,1
+patch=1,EE,206655A0,byte,1
+patch=1,EE,2099C3A4,byte,1
 ; The Monitor from Secret options it cannot you modify manually:
-patch=1,EE,0099C3BC,word,438A05E3 // Distance view (in mm)
-patch=1,EE,0099C3C0,word,43D48000 // Screen width (in mm)
-patch=1,EE,0099C3C4,word,43700000 // Screen height (in mm)
+patch=1,EE,2099C3BC,word,438A05E3 // Distance view (in mm)
+patch=1,EE,2099C3C0,word,43D48000 // Screen width (in mm)
+patch=1,EE,2099C3C4,word,43700000 // Screen height (in mm)
 
 [Widescreen 16:9]
 author=Aero_
@@ -33,9 +33,9 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Widescreen Patch Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
+patch=1,EE,2099C3C8,word,3F68AB7E // "Aspect" to 0.90
+patch=1,EE,2099C3CC,word,3F68AB7E // "Overscan Factor" to 0.90
 patch=1,EE,00353604,word,3C013F55 // ModelFaces
-patch=1,EE,0099C3C8,word,3F68AB7E // Aspect to 0.90
-patch=1,EE,0099C3CC,word,3F68AB7E // Overscan Factor to 0.90
 patch=1,EE,001C113C,short,4405 // HUD height
 patch=1,EE,001C517C,short,C356 // HUD vertical position
 patch=1,EE,001C115C,short,01F2 // Text height
@@ -48,8 +48,8 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112, Aero_ & thefirefox12537
 description=Widescreen Patch Hacks to aspect ratio 20:9.
 gsaspectratio=Stretch
+patch=1,EE,2099C3C8,word,3FA03F4F // "Aspect" to 1.25
 patch=1,EE,00353604,word,3C013F1A // ModelFaces
-patch=1,EE,0099C3C8,word,3FA03F4F // Aspect to 1.25
 patch=1,EE,001C10FC,word,3C01C41D // HUD canvas
 patch=1,EE,001C1130,word,3C0143D2
 patch=1,EE,001C519C,word,3C013F1A // HUD text width
@@ -70,8 +70,8 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Widescreen Patch Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
+patch=1,EE,2099C3C8,word,3FA8427E // "Aspect" to 1.31
 patch=1,EE,00353604,word,3C013F12 // ModelFaces
-patch=1,EE,0099C3C8,word,3FA8427E // Aspect to 1.31
 patch=1,EE,001C10FC,word,3C01C429 // HUD canvas
 patch=1,EE,001C1130,word,3C0143DF
 patch=1,EE,001C519C,word,3C013F12 // HUD text width
@@ -92,8 +92,8 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Widescreen Patch Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
+patch=1,EE,2099C3C8,word,40000000 // "Aspect" to 2.00
 patch=1,EE,00353604,word,3C013EC0 // ModelFaces
-patch=1,EE,0099C3C8,word,40000000 // Aspect to 2.00
 patch=1,EE,001C10FC,word,3C01C4A0 // HUD canvas
 patch=1,EE,001C1130,word,3C01443B
 patch=1,EE,001C519C,word,3C013EC0 // HUD text width
@@ -114,8 +114,8 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Widescreen Patch Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
+patch=1,EE,2099C3C8,word,40400000 // "Aspect" to 3.00
 patch=1,EE,00353604,word,3C013E80 // ModelFaces
-patch=1,EE,0099C3C8,word,40400000 // Aspect to 3.00
 patch=1,EE,001C10FC,word,3C01C507 // HUD canvas
 patch=1,EE,001C1130,word,3C014495
 patch=1,EE,001C519C,word,3C013E80 // HUD text width
@@ -136,11 +136,11 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Duchi/Vyerq & Silentwarior112
 gsinterlacemode=1
 ; Progressive scan mode in Menus to disable interlaced offset rendering
-patch=1,EE,0059F25C,extended,0000102D
+patch=1,EE,2059F25C,extended,0000102D
 ; Progressive scan mode in Races to reduce blur and sharpen image rendering
-patch=1,EE,0099DAA8,byte,1
+patch=1,EE,2099DAA8,byte,1
 patch=1,EE,D06655E4,extended,1
-patch=1,EE,006655E4,extended,2
+patch=1,EE,206655E4,extended,2
 ; The game started still blurry, but in races will auto start in Progressive scan mode  
 
 [Full Trigger Sensitivity]

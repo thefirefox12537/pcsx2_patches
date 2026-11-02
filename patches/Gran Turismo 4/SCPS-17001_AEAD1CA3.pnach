@@ -4,50 +4,95 @@ gametitle=Gran Turismo 4 [SCPS-17001] (J) crc=AEAD1CA3
 author=thefirefox12537 (Ported from CRASHARKI)
 description=Enable Native Widescreen when the game is startup.
 ; Force Aspect Ratio option to 16:9
-patch=1,EE,0060FA70,byte,1
-patch=1,EE,00AB33C4,byte,1
+patch=1,EE,2060FA70,byte,1
+patch=1,EE,20AB33C4,byte,1
 ; The Monitor from Secret options it cannot you modify manually:
-patch=1,EE,00AB33DC,word,438A05E3 // Distance view (in mm)
-patch=1,EE,00ABB3E0,word,43D48000 // Screen width (in mm)
-patch=1,EE,00ABB3E4,word,43700000 // Screen height (in mm)
+patch=1,EE,20AB33DC,word,438A05E3 // Distance view (in mm)
+patch=1,EE,20ABB3E0,word,43D48000 // Screen width (in mm)
+patch=1,EE,20ABB3E4,word,43700000 // Screen height (in mm)
+
+[Widescreen 16:10]
+author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+description=Widescreen Hacks to aspect ratio 16:10.
+gsaspectratio=Stretch
+patch=1,EE,20ABB3E8,word,3F666666 // "Aspect" to 0.90
+patch=1,EE,20ABB3EC,word,3F666666 // "Overscan Factor" to 0.90
+patch=1,EE,00107324,word,3C013F55 // ModelFaces
+patch=1,EE,0039583C,word,3C013F8F // HUD Safezone
+patch=1,EE,003956C4,word,3C01C280 // HUD Canvas Size
+patch=1,EE,003956D0,word,3C01442F
+patch=1,EE,00395710,short,0200 // HUD Text Height
+patch=1,EE,00339888,short,01F2 // Rearview Mirror Height
 
 [Ultrawidescreen 20:9]
 author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
+patch=1,EE,00102BE8,word,3C0143C8 // Loading spinner
+patch=1,EE,00102C08,word,3C01C3C8
+patch=1,EE,00103098,word,3C01C3C8 // Loading image
+patch=1,EE,001030A0,word,3C0143C8
+patch=1,EE,20AB33E8,word,3FA03F4F // "Aspect" to 1.25
 patch=1,EE,00107324,word,3C013F1A // ModelFaces
-patch=1,EE,00AB33E8,word,3FA03F4F // 3D Rendering "Aspect" to 1.25
+patch=1,EE,003956C4,word,3C01C352 // HUD Canvas Size
+patch=1,EE,003956D0,word,3C014454
+patch=1,EE,00398B84,word,3C013F1A // HUD Text Width
+patch=1,EE,003398A8,short,0320 // Rearview Mirror Width
 
 [Ultrawidescreen 21:9]
 author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
+patch=1,EE,00102BE8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102C08,word,3C01C3D2
+patch=1,EE,00103098,word,3C01C3D2 // Loading image
+patch=1,EE,001030A0,word,3C0143D2
+patch=1,EE,20AB33E8,word,3FA8427E // "Aspect" to 1.31
 patch=1,EE,00107324,word,3C013F12 // ModelFaces
-patch=1,EE,00AB33E8,word,3FA8427E // 3D Rendering "Aspect" to 1.31
+patch=1,EE,003956C4,word,3C01C36D // HUD Canvas Size
+patch=1,EE,003956D0,word,3C01445B
+patch=1,EE,00398B84,word,3C013F12 // HUD Text Width
+//patch=1,EE,003398A8,short,0348 // Rearview Mirror Width (Optional)
 
 [Ultrawidescreen 32:9]
 author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
+patch=1,EE,00102BE8,word,3C014420 // Loading spinner
+patch=1,EE,00102C08,word,3C01C420
+patch=1,EE,00103098,word,3C01C420 // Loading image
+patch=1,EE,001030A0,word,3C014420
+patch=1,EE,20AB33E8,word,40000000 // "Aspect" to 2.00
 patch=1,EE,00107324,word,3C013EC0 // ModelFaces
-patch=1,EE,00AB33E8,word,40000000 // 3D Rendering "Aspect" to 2.00
+patch=1,EE,003956C4,word,3C01C404 // HUD Canvas Size
+patch=1,EE,003956D0,word,3C014492
+patch=1,EE,00398B84,word,3C013EC0 // HUD Text Width
+patch=1,EE,003398A8,short,03CF // Rearview Mirror Width
 
 [Ultrawidescreen 48:9]
 author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
+patch=1,EE,00102BE8,word,3C014460 // Loading spinner
+patch=1,EE,00102C08,word,3C01C460
+patch=1,EE,00103098,word,3C01C460 // Loading image
+patch=1,EE,001030A0,word,3C014460
+patch=1,EE,20AB33E8,word,40400000 // "Aspect" to 3.00
 patch=1,EE,00107324,word,3C013E80 // ModelFaces
-patch=1,EE,00AB33E8,word,40400000 // 3D Rendering "Aspect" to +2.00
+patch=1,EE,003956C4,word,3C01C46E // HUD Canvas Size
+patch=1,EE,003956D0,word,3C0144C7
+patch=1,EE,00398B84,word,3C013E80 // HUD Text Width
+patch=1,EE,003398A8,short,05B7 // Rearview Mirror Width
 
 [No Interlacing]
 author=Duchi/Vyerq & Silentwarior112
 gsinterlacemode=1
 ; Progressive scan mode in Menus to disable interlaced offset rendering
-patch=1,EE,0049AA2C,extended,0000102D
+patch=1,EE,2049AA2C,extended,0000102D
 ; Progressive scan mode in Races to reduce blur and sharpen image rendering
-patch=1,EE,00AB4A78,byte,1
+patch=1,EE,20AB4A78,byte,1
 patch=1,EE,D060FAB4,extended,1
-patch=1,EE,0060FAB4,extended,2
+patch=1,EE,2060FAB4,extended,2
 
 [EE Clamping Fix]
 author=kozarovv
@@ -64,7 +109,7 @@ patch=1,EE,000FFC28,double,08407A1278A30000
 patch=1,EE,000FFC30,double,0000000024C6FFE0
 
 [Full Trigger Sensitivity]
-author=Silentwarior112 (Ported from Silent & Aero_)
+author=Silentwarior112 (Ported from CookiePLMonster/Silent & Aero_)
 description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
 ; Throttle
 patch=1,EE,104347CC,extended,00000062
@@ -78,6 +123,11 @@ patch=1,EE,20434880,extended,00000000
 ; Reverse
 patch=1,EE,104348E8,extended,00000062
 patch=1,EE,204348E0,extended,00000000
+
+[Reduce Vibration]
+author=thefirefox12537 (Ported from Aero_)
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,2036768C,extended,3C014170 // lui at,0x4170 : Vibration Float
 
 [360° View Chase Camera]
 author=Duchi/Vyerq
@@ -102,7 +152,7 @@ patch=1,EE,20431176,short,1000
 patch=1,EE,2043119E,short,1000
 
 [Loose Chase Camera]
-author=Silentwarior112 (Ported from Silent)
+author=Silentwarior112 (Ported from CookiePLMonster/Silent)
 description=Makes the exterior camera looser when turn like GT3 A-Spec.
 ; Default parameters in this cheat correspond to the values from GT4 First Preview,
 ; but you may freely customize them. For example, if you want to make the camera
@@ -112,6 +162,20 @@ description=Makes the exterior camera looser when turn like GT3 A-Spec.
 patch=1,EE,20695A08,extended,41F00000 // 30.0. Default - 120.0
 ; Camera max angle, higher values make the camera lean further to the sides
 patch=1,EE,20695A14,extended,41200000 // 10.0. Default - 15.0
+
+[High Chase Camera]
+author=thefirefox12537 (Ported from Silent)
+description=Added GT4 First Preview camera mode.
+; Swap 4-byte instructions to 2-byte ones to make space
+patch=1,EE,203750E4,extended,84E30000
+patch=1,EE,103750E8,extended,0002
+patch=1,EE,103750F8,extended,0004
+patch=1,EE,20375108,extended,84E30000
+patch=1,EE,10375118,extended,0004
+patch=1,EE,00375130,extended,40
+patch=1,EE,10375142,extended,8442
+patch=1,EE,20618748,extended,00010000
+patch=1,EE,2061874C,extended,00060014
 
 [60 FPS]
 author=PeterDelta & Duchi/Vyerq

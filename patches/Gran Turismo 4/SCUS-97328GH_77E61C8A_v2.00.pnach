@@ -4,12 +4,12 @@ gametitle=Gran Turismo 4 (Greatest Hits) [SCUS-97328] (U) crc=77E61C8A
 author=CRASHARKI
 description=Enable Native Widescreen when the game is startup.
 ; Force Aspect Ratio option to 16:9
-patch=1,EE,006184F0,byte,1
-patch=1,EE,00A458D4,byte,1
+patch=1,EE,206184F0,byte,1
+patch=1,EE,20A458D4,byte,1
 ; The Monitor from Secret options it cannot you modify manually:
-patch=1,EE,00A458EC,word,438A05E3 // Distance view (in mm)
-patch=1,EE,00A458F0,word,43D48000 // Screen width (in mm)
-patch=1,EE,00A458F4,word,43700000 // Screen height (in mm)
+patch=1,EE,20A458EC,word,438A05E3 // Distance view (in mm)
+patch=1,EE,20A458F0,word,43D48000 // Screen width (in mm)
+patch=1,EE,20A458F4,word,43700000 // Screen height (in mm)
 
 [Widescreen 16:9]
 author=Aero_
@@ -32,9 +32,9 @@ patch=1,EE,2044DBD8,extended,00000000 // nop
 author=Silentwarior112 & Aero_
 description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
+patch=1,EE,20A458F8,word,3F666666 // "Aspect" to 0.90
+patch=1,EE,20A458FC,word,3F666666 // "Overscan Factor" to 0.90
 patch=1,EE,0010732C,word,3C013F55 // ModelFaces
-patch=1,EE,00A458F8,word,3F666666 // 3D Rendering "Aspect" to 0.90
-patch=1,EE,00A458FC,word,3F666666 // 3D Rendering "Overscan" to 0.90
 patch=1,EE,0039BB54,word,3C013F8F // HUD Safezone
 patch=1,EE,0039BA14,word,3C01C280 // HUD Canvas Size (Positive)
 patch=1,EE,0039BA20,word,3C01442F // HUD Canvas Size (Negative)
@@ -62,8 +62,8 @@ patch=1,EE,00102BE0,word,3C0143C8 // Loading spinner
 patch=1,EE,00102C00,word,3C01C3C8
 patch=1,EE,00103090,word,3C01C3C8 // Loading image
 patch=1,EE,00103098,word,3C0143C8
+patch=1,EE,20A458F8,word,3FA03F4F // "Aspect" to 1.25
 patch=1,EE,0010732C,word,3C013F1A // ModelFaces
-patch=1,EE,00A458F8,word,3FA03F4F // 3D Rendering "Aspect" to 1.25
 patch=1,EE,0039BA14,word,3C01C352 // HUD Canvas Size (Positive)
 patch=1,EE,0039BA20,word,3C014454 // HUD Canvas Size (Negative)
 patch=1,EE,0039F554,word,3C013F1A // HUD Text Width
@@ -90,8 +90,8 @@ patch=1,EE,00102BE0,word,3C0143D2 // Loading spinner
 patch=1,EE,00102C00,word,3C01C3D2
 patch=1,EE,00103090,word,3C01C3D2 // Loading image
 patch=1,EE,00103098,word,3C0143D2
+patch=1,EE,20A458F8,word,3FA8427E // "Aspect" to 1.31
 patch=1,EE,0010732C,word,3C013F12 // ModelFaces
-patch=1,EE,00A458F8,word,3FA8427E // 3D Rendering "Aspect" to 1.31
 patch=1,EE,0039BA14,word,3C01C36D // HUD Canvas Size (Positive)
 patch=1,EE,0039BA20,word,3C01445B // HUD Canvas Size (Negative)
 patch=1,EE,0039F554,word,3C013F12 // HUD Text Width
@@ -118,8 +118,8 @@ patch=1,EE,00102BE0,word,3C014420 // Loading spinner
 patch=1,EE,00102C00,word,3C01C420
 patch=1,EE,00103090,word,3C01C420 // Loading image
 patch=1,EE,00103098,word,3C014420
+patch=1,EE,20A458F8,word,40000000 // "Aspect" to 2.00
 patch=1,EE,0010732C,word,3C013EC0 // ModelFaces
-patch=1,EE,00A458F8,word,40000000 // 3D Rendering "Aspect" to 2.00
 patch=1,EE,0039BA14,word,3C01C404 // HUD Canvas Size (Positive)
 patch=1,EE,0039BA20,word,3C014492 // HUD Canvas Size (Negative)
 patch=1,EE,0039F554,word,3C013EC0 // HUD Text Width
@@ -146,8 +146,8 @@ patch=1,EE,00102BE0,word,3C014460 // Loading spinner
 patch=1,EE,00102C00,word,3C01C460
 patch=1,EE,00103090,word,3C01C460 // Loading image
 patch=1,EE,00103098,word,3C014460
+patch=1,EE,20A458F8,word,40400000 // "Aspect" to 3.00
 patch=1,EE,0010732C,word,3C013E80 // ModelFaces
-patch=1,EE,00A458F8,word,40400000 // 3D Rendering "Aspect" to +2.00
 patch=1,EE,0039BA14,word,3C01C46E // HUD Canvas Size (Positive)
 patch=1,EE,0039BA20,word,3C0144C7 // HUD Canvas Size (Negative)
 patch=1,EE,0039F554,word,3C013E80 // HUD Text Width
@@ -170,11 +170,11 @@ patch=1,EE,2044DBD8,extended,00000000 // nop
 author=thefirefox12537 (Original from Duchi/Vyerq), Silentwarior112
 gsinterlacemode=1
 ; Progressive scan mode in Menus to disable interlaced offset rendering
-patch=1,EE,004A2A2C,extended,0000102D
+patch=1,EE,204A2A2C,extended,0000102D
 ; Progressive scan mode in Races to reduce blur and sharpen image rendering
-patch=1,EE,00A46F70,byte,1
+patch=1,EE,20A46F70,byte,1
 patch=1,EE,D0618534,extended,1
-patch=1,EE,00618534,extended,2
+patch=1,EE,20618534,extended,2
 
 [EE Clamping Fix]
 author=kozarovv
