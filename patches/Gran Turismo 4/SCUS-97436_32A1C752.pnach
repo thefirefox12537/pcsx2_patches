@@ -1,16 +1,5 @@
 gametitle=Gran Turismo 4 Online Public Beta [SCUS-97436] (U) crc=32A1C752
 
-[Autoboot in 16:9]
-author=thefirefox12537 (Ported from CRASHARKI)
-description=Enable Native Widescreen when the game is startup.
-; Force Aspect Ratio option to 16:9 (It bugged on 4:3 text for new game when startup)
-patch=1,EE,206655A0,byte,1
-patch=1,EE,2099C3A4,byte,1
-; The Monitor from Secret options it cannot you modify manually:
-patch=1,EE,2099C3BC,word,438A05E3 // Distance view (in mm)
-patch=1,EE,2099C3C0,word,43D48000 // Screen width (in mm)
-patch=1,EE,2099C3C4,word,43700000 // Screen height (in mm)
-
 [Widescreen 16:9]
 author=Aero_
 description=Corrects the text aspect ratio when 16:9 is selected in the options menu.
@@ -23,43 +12,43 @@ author=Silentwarior112 & Aero_
 description=90% margin safe area on HUD.
 gsaspectratio=16:9
 patch=1,EE,001C1334,short,3F88 // HUD safe area
-patch=1,EE,001C115C,short,01F2 // Text height
-patch=1,EE,001C519C,word,3C013F2D // Text width
+patch=1,EE,001C115C,short,01F2 // HUD text height
+patch=1,EE,001C519C,word,3C013F2D // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013F40 // lui at, 0x3F40
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Widescreen 16:10]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 16:10.
+description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 patch=1,EE,2099C3C8,word,3F68AB7E // "Aspect" to 0.90
 patch=1,EE,2099C3CC,word,3F68AB7E // "Overscan Factor" to 0.90
 patch=1,EE,00353604,word,3C013F55 // ModelFaces
 patch=1,EE,001C113C,short,4405 // HUD height
 patch=1,EE,001C517C,short,C356 // HUD vertical position
-patch=1,EE,001C115C,short,01F2 // Text height
+patch=1,EE,001C115C,short,01F2 // HUD text height
 patch=1,EE,001EB63C,short,0215 // Rearview mirror height
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013F63 // lui at, 0x3F63
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 20:9]
-author=Silentwarior112, Aero_ & thefirefox12537
-description=Widescreen Patch Hacks to aspect ratio 20:9.
+author=thefirefox12537 (Original from Silentwarior112), Aero_
+description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
 patch=1,EE,2099C3C8,word,3FA03F4F // "Aspect" to 1.25
 patch=1,EE,00353604,word,3C013F1A // ModelFaces
+patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
+patch=1,EE,00102408,word,3C01C3C8
+patch=1,EE,001028B0,word,3C01C3C8 // Loading image
+patch=1,EE,001028B8,word,3C0143C8
+patch=1,EE,001028C0,word,3C01C380
+patch=1,EE,001028C8,word,3C014380
 patch=1,EE,001C10FC,word,3C01C41D // HUD canvas
 patch=1,EE,001C1130,word,3C0143D2
 patch=1,EE,001C519C,word,3C013F1A // HUD text width
 patch=1,EE,001EB65C,short,0320 // Rearview mirror width
-patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
-patch=1,EE,00102408,word,3C01C3C8
-patch=1,EE,001028C0,word,3C01C380 // Loading image
-patch=1,EE,001028C8,word,3C014380
-patch=1,EE,001028B0,word,3C01C3C8
-patch=1,EE,001028B8,word,3C0143C8
 //patch=1,EE,0033F4E0,word,3C014485 // Optional: Pause Menu & B-Spec Monitor
 //patch=1,EE,001FDD4C,word,3C014485
 ; Corrects the text aspect ratio
@@ -68,20 +57,20 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 21:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 21:9.
+description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
 patch=1,EE,2099C3C8,word,3FA8427E // "Aspect" to 1.31
 patch=1,EE,00353604,word,3C013F12 // ModelFaces
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028B0,word,3C01C3D2 // Loading image
+patch=1,EE,001028B8,word,3C0143D2
+patch=1,EE,001028C0,word,3C01C374
+patch=1,EE,001028C8,word,3C014374
 patch=1,EE,001C10FC,word,3C01C429 // HUD canvas
 patch=1,EE,001C1130,word,3C0143DF
 patch=1,EE,001C519C,word,3C013F12 // HUD text width
-//patch=1,EE,001EB65C,short,0348 // Rearview mirror width (optional)
-patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
-patch=1,EE,00102408,word,3C01C3D2
-patch=1,EE,001028C0,word,3C01C374 // Loading image
-patch=1,EE,001028C8,word,3C014374
-patch=1,EE,001028B0,word,3C01C3D2
-patch=1,EE,001028B8,word,3C0143D2
+//patch=1,EE,001EB65C,short,0348 // Rearview mirror width (Optional)
 //patch=1,EE,0033F4E0,word,3C01448C // Optional: Pause Menu & B-Spec Monitor
 //patch=1,EE,001FDD4C,word,3C01448C
 ; Corrects the text aspect ratio
@@ -90,20 +79,20 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 32:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 32:9.
+description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
 patch=1,EE,2099C3C8,word,40000000 // "Aspect" to 2.00
 patch=1,EE,00353604,word,3C013EC0 // ModelFaces
+patch=1,EE,001023E8,word,3C014420 // Loading spinner
+patch=1,EE,00102408,word,3C01C420
+patch=1,EE,001028B0,word,3C01C420 // Loading image
+patch=1,EE,001028B8,word,3C014420
+patch=1,EE,001028C0,word,3C01C320
+patch=1,EE,001028C8,word,3C014320
 patch=1,EE,001C10FC,word,3C01C4A0 // HUD canvas
 patch=1,EE,001C1130,word,3C01443B
 patch=1,EE,001C519C,word,3C013EC0 // HUD text width
 patch=1,EE,001EB65C,short,03CF // Rearview mirror width
-patch=1,EE,001023E8,word,3C014420 // Loading spinner
-patch=1,EE,00102408,word,3C01C420
-patch=1,EE,001028C0,word,3C01C320 // Loading image
-patch=1,EE,001028C8,word,3C014320
-patch=1,EE,001028B0,word,3C01C420
-patch=1,EE,001028B8,word,3C014420
 //patch=1,EE,0033F4E0,word,3C0144D6 // Optional: Pause Menu & B-Spec Monitor
 //patch=1,EE,001FDD4C,word,3C0144D6
 ; Corrects the text aspect ratio
@@ -112,20 +101,20 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 48:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 48:9.
+description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
 patch=1,EE,2099C3C8,word,40400000 // "Aspect" to 3.00
 patch=1,EE,00353604,word,3C013E80 // ModelFaces
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028B0,word,3C01C3D2 // Loading image
+patch=1,EE,001028B8,word,3C0143D2
+patch=1,EE,001028C0,word,3C01C374
+patch=1,EE,001028C8,word,3C014374
 patch=1,EE,001C10FC,word,3C01C507 // HUD canvas
 patch=1,EE,001C1130,word,3C014495
 patch=1,EE,001C519C,word,3C013E80 // HUD text width
 patch=1,EE,001EB65C,short,05B7 // Rearview mirror width
-patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
-patch=1,EE,00102408,word,3C01C3D2
-patch=1,EE,001028C0,word,3C01C374 // Loading image
-patch=1,EE,001028C8,word,3C014374
-patch=1,EE,001028B0,word,3C01C3D2
-patch=1,EE,001028B8,word,3C0143D2
 //patch=1,EE,0033F4E0,word,3C01448C // Optional: Pause Menu & B-Spec Monitor
 //patch=1,EE,001FDD4C,word,3C01448C
 ; Corrects the text aspect ratio
@@ -141,7 +130,6 @@ patch=1,EE,2059F25C,extended,0000102D
 patch=1,EE,2099DAA8,byte,1
 patch=1,EE,D06655E4,extended,1
 patch=1,EE,206655E4,extended,2
-; The game started still blurry, but in races will auto start in Progressive scan mode  
 
 [Full Trigger Sensitivity]
 author=Silent & Aero_
@@ -161,9 +149,9 @@ patch=1,EE,2023149C,extended,3C014170 // lui at,0x4170 : Vibration Float
 [360° View Chase Camera]
 author=Nenkai (Ported from Duchi/Vyerq)
 description=When looking backwards, the camera can be rotated horizontally with right analog stick.
-; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x206488
+; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x20206488
 patch=1,EE,20206488,extended,0C03C440
-; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89008A
+; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89B0DE
 patch=1,EE,200F1100,extended,3C0F008A
 patch=1,EE,200F1104,extended,91EFB0DE
 ; New extra logic (passing stick value into diffAngle())
@@ -177,8 +165,8 @@ patch=1,EE,200F111C,extended,461FF7C2
 patch=1,EE,200F1120,extended,0808C3C0
 patch=1,EE,200F1124,extended,460DFB40
 ; Disable right analog stick function on Throttle/Brake
-patch=1,EE,1031494E,short,1000
-patch=1,EE,10314976,short,1000
+patch=1,EE,1031494E,extended,1000
+patch=1,EE,10314976,extended,1000
 
 [Loose Chase Camera]
 author=Silent
@@ -208,10 +196,11 @@ patch=1,EE,1023F3DA,extended,8442
 patch=1,EE,20662B30,extended,00010000
 patch=1,EE,20662B34,extended,00060014
 
-[Pit Crew Motion]
-author=Duchi/Vyerq
-description=Unlocks the FPS for Pit Crews.
-patch=1,EE,202AC2FC,extended,01
+[60 FPS]
+author=PeterDelta & Duchi/Vyerq
+description=Unlock the motion races or menus it not the 60 FPS.
+patch=1,EE,00665794,extended,01 // Photo Mode
+patch=1,EE,202AC2FC,extended,01 // Pit Crew
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq

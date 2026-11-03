@@ -1,0 +1,297 @@
+gametitle=Gran Turismo 3 A-Spec [SCUS-97102] (U)
+
+[Widescreen 16:9]
+author=Aero_
+description=Corrects the text aspect ratio when 16:9 is selected in the options menu.
+gsaspectratio=16:9
+patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
+patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F : Widescreen Mode 1st-Half of Memory Address
+patch=1,EE,20493724,extended,3529424C // ori t1,0x424C : Widescreen Mode 2nd-Half of Memory Address
+patch=1,EE,20493728,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049372C,extended,3C013F80 // lui at,0x3F80 : Text Width 1st-Half of Float Value (4:3)
+patch=1,EE,20493730,extended,34210000 // ori at,0x0000 : Text Width 2nd-Half of Float Value (4:3)
+patch=1,EE,20493734,extended,11400003 // beqz t2,0x00493744 : Jumps if Widescreen Mode is Disabled
+patch=1,EE,20493738,extended,00000000 // nop
+patch=1,EE,2049373C,extended,3C013F40 // lui at,0x3F40 : Text Width 1st-Half of Float Value (16:9)
+patch=1,EE,20493740,extended,34210000 // ori at,0x0000 : Text Width 2nd-Half of Float Value (16:9)
+patch=1,EE,20493744,extended,44810000 // mtc1 at,f00
+patch=1,EE,20493748,extended,3C013F80 // lui at,0x3F80 : Text Height 1st-Half of Float Value
+patch=1,EE,2049374C,extended,34210000 // ori at,0x0000 : Text Height 2nd-Half of Float Value
+patch=1,EE,20493750,extended,44810800 // mtc1 at,f01
+patch=1,EE,20493754,extended,0808F2F7 // j 0x0023CBDC
+patch=1,EE,2023CC14,extended,E6210260 // swc1 f01,0x260(s1) : Uses f01 to seperate Text Height from Text Width
+patch=1,EE,20197C84,extended,08124DD8 // j 0x00493760
+patch=1,EE,20493760,extended,3C09002F // lui t1,0x002F : Widescreen Mode 1st-Half of Memory Address
+patch=1,EE,20493764,extended,3529424C // ori t1,0x424C : Widescreen Mode 2nd-Half of Memory Address
+patch=1,EE,20493768,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049376C,extended,3C0B3F80 // lui t3,0x3F80 : Text Position 1st-Half of Float Value (4:3)
+patch=1,EE,20493770,extended,356B0000 // ori t3,0x0000 : Text Position 2nd-Half of Float Value (4:3)
+patch=1,EE,20493774,extended,11400003 // beqz t2,0x00493784 : Jumps if Widescreen Mode is Disabled
+patch=1,EE,20493778,extended,00000000 // nop
+patch=1,EE,2049377C,extended,3C0B3F40 // lui t3,0x3F40 : Text Position 1st-Half of Float Value (16:9)
+patch=1,EE,20493780,extended,356B0000 // ori t3,0x0000 : Text Position 2nd-Half of Float Value (16:9)
+patch=1,EE,20493784,extended,448B0000 // mtc1 t3,f00
+patch=1,EE,20493788,extended,08065F22 // j 0x00197C88
+patch=1,EE,2018A948,extended,10000003 // b 0x0018A958 : Prevents License Reward Text from being overcorrected in widescreen
+patch=1,EE,20193658,extended,10000003 // b 0x00193668 : Prevents HUD Text from being overcorrected in widescreen
+patch=1,EE,201AFF78,extended,10000019 // b 0x001AFFE0 : Prevents Race Results Text from being overcorrected in widescreen
+patch=1,EE,201B00D4,extended,10000008 // b 0x001B00F8 : Prevents Race Results from not rendering in widescreen
+
+[Ultrawidescreen 20:9]
+author=thefirefox12537 (Original from Silentwarior112), Aero_
+description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
+gsaspectratio=Stretch
+patch=1,EE,2017E89C,short,3F1A // Horizontal Field of view modifier
+patch=1,EE,2017E9EC,short,4365 // Rearview mirror box horizontal position
+patch=1,EE,2017EA04,short,4337 // Rearview mirror box horizontal size
+patch=1,EE,201CB048,short,3F1A // CarFace width modifier in dealership
+patch=1,EE,2022A190,short,3F1A // ModelFace after license completion
+//patch=1,EE,2034FD04,word,3F8B506B // Rearview field of view
+patch=1,EE,2034FD74,word,C3520000 // HUD Canvas resizing
+patch=1,EE,2034FD78,word,44548000
+patch=1,EE,2034FFC8,word,C3520000 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,word,44548000
+; Corrects the text aspect ratio
+patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
+patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493724,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493728,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049372C,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20493730,extended,34210000 // ori at,0x0000
+patch=1,EE,20493734,extended,11400003 // beqz t2,0x00493744
+patch=1,EE,20493738,extended,00000000 // nop
+patch=1,EE,2049373C,extended,3C013F1A // lui at,0x3F1A
+patch=1,EE,20493740,extended,34210000 // ori at,0x0000
+patch=1,EE,20493744,extended,44810000 // mtc1 at,f00
+patch=1,EE,20493748,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2049374C,extended,34210000 // ori at,0x0000
+patch=1,EE,20493750,extended,44810800 // mtc1 at,f01
+patch=1,EE,20493754,extended,0808F2F7 // j 0x0023CBDC
+patch=1,EE,2023CC14,extended,E6210260 // swc1 f01,0x260(s1)
+patch=1,EE,20193660,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20193664,extended,34210000 // ori at,0x0000
+patch=1,EE,20197C84,extended,08124DD8 // j 0x00493760
+patch=1,EE,20493760,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493764,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493768,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049376C,extended,3C0B3F80 // lui t3,0x3F80
+patch=1,EE,20493770,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493774,extended,11400003 // beqz t2,0x00493784
+patch=1,EE,20493778,extended,00000000 // nop
+patch=1,EE,2049377C,extended,3C0B3F1A // lui t3,0x3F1A
+patch=1,EE,20493780,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493784,extended,448B0000 // mtc1 t3,f00
+patch=1,EE,20493788,extended,08065F22 // j 0x00197C88
+patch=1,EE,2018A950,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2018A954,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 21:9]
+author=Silentwarior112 & Aero_
+description=Ultrawidescreen Hacks to aspect ratio 21:9.
+gsaspectratio=Stretch
+patch=1,EE,2017E89C,short,3F12 // Horizontal Field of view modifier
+patch=1,EE,2017E9EC,short,4365 // Rearview mirror box horizontal position
+patch=1,EE,2017EA04,short,4337 // Rearview mirror box horizontal size
+patch=1,EE,201CB048,short,3F12 // CarFace width modifier in dealership
+patch=1,EE,2022A190,short,3F12 // ModelFace after license completion
+//patch=1,EE,2034FD04,word,3F8B506B // Rearview field of view
+patch=1,EE,2034FD74,word,C36D0000 // HUD Canvas resizing
+patch=1,EE,2034FD78,word,445B4000
+patch=1,EE,2034FFC8,word,C36D0000 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,word,445B4000
+; Corrects the text aspect ratio
+patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
+patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493724,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493728,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049372C,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20493730,extended,34210000 // ori at,0x0000
+patch=1,EE,20493734,extended,11400003 // beqz t2,0x00493744
+patch=1,EE,20493738,extended,00000000 // nop
+patch=1,EE,2049373C,extended,3C013F12 // lui at,0x3F12
+patch=1,EE,20493740,extended,34210000 // ori at,0x0000
+patch=1,EE,20493744,extended,44810000 // mtc1 at,f00
+patch=1,EE,20493748,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2049374C,extended,34210000 // ori at,0x0000
+patch=1,EE,20493750,extended,44810800 // mtc1 at,f01
+patch=1,EE,20493754,extended,0808F2F7 // j 0x0023CBDC
+patch=1,EE,2023CC14,extended,E6210260 // swc1 f01,0x260(s1)
+patch=1,EE,20193660,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20193664,extended,34210000 // ori at,0x0000
+patch=1,EE,20197C84,extended,08124DD8 // j 0x00493760
+patch=1,EE,20493760,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493764,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493768,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049376C,extended,3C0B3F80 // lui t3,0x3F80
+patch=1,EE,20493770,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493774,extended,11400003 // beqz t2,0x00493784
+patch=1,EE,20493778,extended,00000000 // nop
+patch=1,EE,2049377C,extended,3C0B3F12 // lui t3,0x3F12
+patch=1,EE,20493780,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493784,extended,448B0000 // mtc1 t3,f00
+patch=1,EE,20493788,extended,08065F22 // j 0x00197C88
+patch=1,EE,2018A950,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2018A954,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 32:9]
+author=Silentwarior112 & Aero_
+description=Ultrawidescreen Hacks to aspect ratio 32:9.
+gsaspectratio=Stretch
+patch=1,EE,2017E89C,short,3EC0 // Horizontal Field of view modifier
+patch=1,EE,2017E9EC,short,438A // Rearview mirror box horizontal position
+patch=1,EE,2017EA04,short,42B4 // Rearview mirror box horizontal size
+//patch=1,EE,201CB048,short,3EC0 // CarFace width modifier in dealership (Optional)
+patch=1,EE,2022A190,short,3EC0 // ModelFace after license completion
+patch=1,EE,2034FD04,word,3F092329 // Rearview field of view
+patch=1,EE,2034FD74,word,C4040000 // HUD Canvas resizing
+patch=1,EE,2034FD78,word,44920000
+patch=1,EE,2034FFC8,word,C4040000 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,word,44920000
+; Corrects the text aspect ratio
+patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
+patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493724,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493728,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049372C,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20493730,extended,34210000 // ori at,0x0000
+patch=1,EE,20493734,extended,11400003 // beqz t2,0x00493744
+patch=1,EE,20493738,extended,00000000 // nop
+patch=1,EE,2049373C,extended,3C013EC0 // lui at,0x3EC0
+patch=1,EE,20493740,extended,34210000 // ori at,0x0000
+patch=1,EE,20493744,extended,44810000 // mtc1 at,f00
+patch=1,EE,20493748,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2049374C,extended,34210000 // ori at,0x0000
+patch=1,EE,20493750,extended,44810800 // mtc1 at,f01
+patch=1,EE,20493754,extended,0808F2F7 // j 0x0023CBDC
+patch=1,EE,2023CC14,extended,E6210260 // swc1 f01,0x260(s1)
+patch=1,EE,20193660,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20193664,extended,34210000 // ori at,0x0000
+patch=1,EE,20197C84,extended,08124DD8 // j 0x00493760
+patch=1,EE,20493760,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493764,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493768,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049376C,extended,3C0B3F80 // lui t3,0x3F80
+patch=1,EE,20493770,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493774,extended,11400003 // beqz t2,0x00493784
+patch=1,EE,20493778,extended,00000000 // nop
+patch=1,EE,2049377C,extended,3C0B3EC0 // lui t3,0x3EC0
+patch=1,EE,20493780,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493784,extended,448B0000 // mtc1 t3,f00
+patch=1,EE,20493788,extended,08065F22 // j 0x00197C88
+patch=1,EE,2018A950,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2018A954,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 48:9]
+author=Silentwarior112 & Aero_
+description=Ultrawidescreen Hacks to aspect ratio 48:9.
+gsaspectratio=Stretch
+patch=1,EE,2017E89C,short,3E80 // Horizontal Field of view modifier
+patch=1,EE,2017E9EC,short,4391 // Rearview mirror box horizontal position
+patch=1,EE,2017EA04,short,4270 // Rearview mirror box horizontal size
+//patch=1,EE,201CB048,short,3E80 // CarFace width modifier in dealership (Optional)
+patch=1,EE,2022A190,short,3E80 // ModelFace after license completion
+patch=1,EE,2034FD04,word,3EB6D98C // Rearview field of view
+patch=1,EE,2034FD74,word,C46E0000 // HUD Canvas resizing
+patch=1,EE,2034FD78,word,44C70000
+patch=1,EE,2034FFC8,word,C46E0000 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,word,44C70000
+; Corrects the text aspect ratio
+patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
+patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493724,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493728,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049372C,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20493730,extended,34210000 // ori at,0x0000
+patch=1,EE,20493734,extended,11400003 // beqz t2,0x00493744
+patch=1,EE,20493738,extended,00000000 // nop
+patch=1,EE,2049373C,extended,3C013E80 // lui at,0x3E80
+patch=1,EE,20493740,extended,34210000 // ori at,0x0000
+patch=1,EE,20493744,extended,44810000 // mtc1 at,f00
+patch=1,EE,20493748,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2049374C,extended,34210000 // ori at,0x0000
+patch=1,EE,20493750,extended,44810800 // mtc1 at,f01
+patch=1,EE,20493754,extended,0808F2F7 // j 0x0023CBDC
+patch=1,EE,2023CC14,extended,E6210260 // swc1 f01,0x260(s1)
+patch=1,EE,20193660,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,20193664,extended,34210000 // ori at,0x0000
+patch=1,EE,20197C84,extended,08124DD8 // j 0x00493760
+patch=1,EE,20493760,extended,3C09002F // lui t1,0x002F
+patch=1,EE,20493764,extended,3529424C // ori t1,0x424C
+patch=1,EE,20493768,extended,812A0000 // lb t2,(t1)
+patch=1,EE,2049376C,extended,3C0B3F80 // lui t3,0x3F80
+patch=1,EE,20493770,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493774,extended,11400003 // beqz t2,0x00493784
+patch=1,EE,20493778,extended,00000000 // nop
+patch=1,EE,2049377C,extended,3C0B3E80 // lui t3,0x3E80
+patch=1,EE,20493780,extended,356B0000 // ori t3,0x0000
+patch=1,EE,20493784,extended,448B0000 // mtc1 t3,f00
+patch=1,EE,20493788,extended,08065F22 // j 0x00197C88
+patch=1,EE,2018A950,extended,3C013F80 // lui at,0x3F80
+patch=1,EE,2018A954,extended,34210000 // ori at,0x0000
+
+[No Interlacing]
+author=asasega
+description=Attempts to disable interlaced offset rendering.
+gsinterlacemode=1
+patch=1,EE,2025A3C8,extended,34020001
+
+[Level of Details]
+author=Silentwarior112
+description=Eliminates most body level of detail model pop-in during races.
+patch=1,EE,2021ED22,short,1000
+patch=1,EE,2021F9AE,short,1000
+patch=1,EE,2022227A,short,1000
+patch=1,EE,2022423A,short,1000
+
+[Remove Lamp-light Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on cars lamp and track lamp sources on evening/night tracks.
+patch=1,EE,2017EA70,extended,10000009
+patch=1,EE,2019AC90,extended,03E00008
+patch=1,EE,2019AC94,extended,00000000
+
+[Remove Sun Ray Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,201A8810,extended,03E00008
+patch=1,EE,201A8814,extended,00000000
+patch=1,EE,201A88C0,extended,03E00008
+patch=1,EE,201A88C4,extended,00000000
+
+[Remove Mirage Effects]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Disable the mirage effects of the objects on Replay Mode.
+patch=1,EE,2017EC88,extended,00000000
+
+[Remove White Haze]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Remove the distant white haze.
+patch=1,EE,201A81D8,extended,3C0F7FFF
+patch=1,EE,201A81E4,extended,448F6000
+
+[Metric Units]
+author=Silent
+description=Change units to Metric measurement format.
+patch=1,EE,202F59D8,extended,0
+patch=1,EE,202F59DC,extended,0
+patch=1,EE,202F59E0,extended,0
+
+[UK Imperial Units]
+author=Silent
+description=Change units to Imperial measurement format (United Kingdom/Canada).
+patch=1,EE,202F59D8,extended,1
+patch=1,EE,202F59DC,extended,2
+patch=1,EE,202F59E0,extended,0
+
+[Full Trigger Sensitivity]
+author=Silent & Aero_
+description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
+patch=1,EE,10211218,extended,00000062 // Throttle
+patch=1,EE,10211260,extended,00000062 // Brake
+patch=1,EE,102112F0,extended,00000062 // Reverse
+patch=1,EE,20211014,extended,00000000 // Input multiplier
+
+[Reduce Vibration]
+author=Aero_
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,201DF498,extended,3C014170 // lui at,0x4170 : Vibration Float

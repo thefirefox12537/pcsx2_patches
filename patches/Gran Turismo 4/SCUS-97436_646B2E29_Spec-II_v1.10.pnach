@@ -7,96 +7,107 @@ gsaspectratio=16:9
 patch=1,EE,2033D7DC,extended,3C013F40 // lui at, 0x3F40
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
+[Widescreen 16:9 (Safe Area)]
+author=Silentwarior112 & Aero_
+description=90% margin safe area on HUD.
+gsaspectratio=16:9
+patch=1,EE,001C1334,short,3F88 // HUD safe area
+patch=1,EE,001C115C,short,01F2 // HUD text height
+patch=1,EE,001C519C,word,3C013F2D // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,2033D7DC,extended,3C013F40 // lui at, 0x3F40
+patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
+
 [Widescreen 16:10]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 16:10.
+description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 // Set the "Aspect" and "Overscan Factor" manually to 0.90 in Monitor (Secret Option)
 patch=1,EE,00353604,word,3C013F55 // ModelFaces
 patch=1,EE,001C113C,short,4405 // HUD height
 patch=1,EE,001C517C,short,C356 // HUD vertical position
-patch=1,EE,001C115C,short,01F2 // Text height
+patch=1,EE,001C115C,short,01F2 // HUD text height
 patch=1,EE,001EB63C,short,0215 // Rearview mirror height
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013F63 // lui at, 0x3F63
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 20:9]
-author=Silentwarior112, Aero_ & thefirefox12537
-description=Widescreen Patch Hacks to aspect ratio 20:9.
+author=thefirefox12537 (Original from Silentwarior112), Aero_
+description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
 // Set the "Aspect" manually to 1.25 in Monitor (Secret Option)
 patch=1,EE,00353604,word,3C013F1A // ModelFaces
+patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
+patch=1,EE,00102408,word,3C01C3C8
+patch=1,EE,001028B0,word,3C01C3C8 // Loading image
+patch=1,EE,001028B8,word,3C0143C8
+patch=1,EE,001028C0,word,3C01C380
+patch=1,EE,001028C8,word,3C014380
 patch=1,EE,001C10FC,word,3C01C41D // HUD canvas
 patch=1,EE,001C1130,word,3C0143D2
 patch=1,EE,001C519C,word,3C013F1A // HUD text width
 patch=1,EE,001EB65C,short,0320 // Rearview mirror width
-patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
-patch=1,EE,00102408,word,3C01C3C8
-patch=1,EE,001028C0,word,3C01C380 // Loading image
-patch=1,EE,001028C8,word,3C014380
-patch=1,EE,001028B0,word,3C01C3C8
-patch=1,EE,001028B8,word,3C0143C8
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013F24 // lui at, 0x3F24
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 21:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 21:9.
+description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
 // Set the "Aspect" manually to 1.31 in Monitor (Secret Option)
 patch=1,EE,00353604,word,3C013F12 // ModelFaces
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028B0,word,3C01C3D2 // Loading image
+patch=1,EE,001028B8,word,3C0143D2
+patch=1,EE,001028C0,word,3C01C374
+patch=1,EE,001028C8,word,3C014374
 patch=1,EE,001C10FC,word,3C01C429 // HUD canvas
 patch=1,EE,001C1130,word,3C0143DF
 patch=1,EE,001C519C,word,3C013F12 // HUD text width
-//patch=1,EE,001EB65C,short,0348 // Rearview mirror width (optional)
-patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
-patch=1,EE,00102408,word,3C01C3D2
-patch=1,EE,001028C0,word,3C01C374 // Loading image
-patch=1,EE,001028C8,word,3C014374
-patch=1,EE,001028B0,word,3C01C3D2
-patch=1,EE,001028B8,word,3C0143D2
+//patch=1,EE,001EB65C,short,0348 // Rearview mirror width (Optional)
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013F1C // lui at, 0x3F24
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 32:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 32:9.
+description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
 // Set the "Aspect" manually to 2.00 in Monitor (Secret Option)
 patch=1,EE,00353604,word,3C013EC0 // ModelFaces
+patch=1,EE,001023E8,word,3C014420 // Loading spinner
+patch=1,EE,00102408,word,3C01C420
+patch=1,EE,001028B0,word,3C01C420 // Loading image
+patch=1,EE,001028B8,word,3C014420
+patch=1,EE,001028C0,word,3C01C320
+patch=1,EE,001028C8,word,3C014320
 patch=1,EE,001C10FC,word,3C01C4A0 // HUD canvas
 patch=1,EE,001C1130,word,3C01443B
 patch=1,EE,001C519C,word,3C013EC0 // HUD text width
 patch=1,EE,001EB65C,short,03CF // Rearview mirror width
-patch=1,EE,001023E8,word,3C014420 // Loading spinner
-patch=1,EE,00102408,word,3C01C420
-patch=1,EE,001028C0,word,3C01C320 // Loading image
-patch=1,EE,001028C8,word,3C014320
-patch=1,EE,001028B0,word,3C01C420
-patch=1,EE,001028B8,word,3C014420
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013ECD // lui at, 0x3ECD
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [Ultrawidescreen 48:9]
 author=Silentwarior112 & Aero_
-description=Widescreen Patch Hacks to aspect ratio 48:9.
+description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
 // Set the "Aspect" manually to 3.00 in Monitor (Secret Option)
 patch=1,EE,00353604,word,3C013E80 // ModelFaces
+patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
+patch=1,EE,00102408,word,3C01C3D2
+patch=1,EE,001028B0,word,3C01C3D2 // Loading image
+patch=1,EE,001028B8,word,3C0143D2
+patch=1,EE,001028C0,word,3C01C374
+patch=1,EE,001028C8,word,3C014374
 patch=1,EE,001C10FC,word,3C01C507 // HUD canvas
 patch=1,EE,001C1130,word,3C014495
 patch=1,EE,001C519C,word,3C013E80 // HUD text width
 patch=1,EE,001EB65C,short,05B7 // Rearview mirror width
-patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
-patch=1,EE,00102408,word,3C01C3D2
-patch=1,EE,001028C0,word,3C01C374 // Loading image
-patch=1,EE,001028C8,word,3C014374
-patch=1,EE,001028B0,word,3C01C3D2
-patch=1,EE,001028B8,word,3C0143D2
 ; Corrects the text aspect ratio
 patch=1,EE,2033D7DC,extended,3C013E89 // lui at, 0x3E89
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
@@ -127,9 +138,9 @@ patch=1,EE,2023149C,extended,3C014170 // lui at,0x4170 : Vibration Float
 [360° View Chase Camera]
 author=Nenkai (Ported from Duchi/Vyerq)
 description=When looking backwards, the camera can be rotated horizontally with right analog stick.
-; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x206488
+; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x20206488
 patch=1,EE,20206488,extended,0C03C440
-; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89008A
+; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89B0DE
 patch=1,EE,200F1100,extended,3C0F008A
 patch=1,EE,200F1104,extended,91EFB0DE
 ; New extra logic (passing stick value into diffAngle())

@@ -1,0 +1,136 @@
+gametitle=Gran Turismo 3 A-Spec [SCPS-15009] (J)
+
+[Ultrawidescreen 20:9]
+author=thefirefox12537 (Original from Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 20:9 (Mobile Aspect Ratio).
+gsaspectratio=Stretch
+patch=1,EE,2017D908,short,3F1A // Horizontal Field of view modifier
+patch=1,EE,2017DA58,short,4365 // Rearview mirror box horizontal position
+patch=1,EE,2017DA70,short,4337 // Rearview mirror box horizontal size
+patch=1,EE,201920BC,short,3F1A // Text-based HUD elements horizontal size
+patch=1,EE,20189798,short,3F1A // Text after licence completion, maybe more
+patch=1,EE,202271D8,short,3F1A // ModelFace after license completion
+patch=1,EE,201C9400,short,3F1A // CarFace width modifier in dealership
+//patch=1,EE,20349F60,word,3F8B506B // Rearview field of view
+patch=1,EE,20349FD4,word,3EA80000 // HUD Canvas resizing
+patch=1,EE,20349FD8,word,3FAA0000
+patch=1,EE,2034A21E,short,C352 // Pause menu & race results canvas resizing
+patch=1,EE,2034A222,short,4454
+
+[Ultrawidescreen 21:9]
+author=Silentwarior112
+description=Ultrawidescreen Hacks to aspect ratio 20:9.
+gsaspectratio=Stretch
+patch=1,EE,2017D908,short,3F12 // Horizontal Field of view modifier
+patch=1,EE,2017DA58,short,4365 // Rearview mirror box horizontal position
+patch=1,EE,2017DA70,short,4337 // Rearview mirror box horizontal size
+patch=1,EE,201920BC,short,3F12 // Text-based HUD elements horizontal size
+patch=1,EE,20189798,short,3F12 // Text after licence completion, maybe more
+patch=1,EE,202271D8,short,3F12 // ModelFace after license completion
+patch=1,EE,201C9400,short,3F12 // CarFace width modifier in dealership
+//patch=1,EE,20349F60,word,3F8B506B // Rearview field of view
+patch=1,EE,20349FD4,word,3EBCCCCD // HUD Canvas resizing
+patch=1,EE,20349FD8,word,3FAF3333
+patch=1,EE,2034A21E,short,C36C // Pause menu & race results canvas resizing
+patch=1,EE,2034A222,short,445B
+
+[Ultrawidescreen 32:9]
+author=Silentwarior112
+description=Ultrawidescreen Hacks to aspect ratio 20:9.
+gsaspectratio=Stretch
+patch=1,EE,2017D908,short,3EC0 // Horizontal Field of view modifier
+patch=1,EE,2017DA58,short,438A // Rearview mirror box horizontal position
+patch=1,EE,2017DA70,short,42B4 // Rearview mirror box horizontal size
+patch=1,EE,201920BC,short,3EC0 // Text-based HUD elements horizontal size
+patch=1,EE,20189798,short,3EC0 // Text after licence completion, maybe more
+patch=1,EE,202271D8,short,3EC0 // ModelFace after license completion
+//patch=1,EE,201C9400,short,3EC0 // CarFace width modifier in dealership (Optional)
+patch=1,EE,20349F60,word,3F092329 // Rearview field of view
+patch=1,EE,20349FD4,word,3F533333 // HUD Canvas resizing
+patch=1,EE,20349FD8,word,3FE9999A
+patch=1,EE,2034A21E,short,C404 // Pause menu & race results canvas resizing
+patch=1,EE,2034A222,short,4492
+
+[Ultrawidescreen 48:9]
+author=Silentwarior112
+description=Ultrawidescreen Hacks to aspect ratio 20:9.
+gsaspectratio=Stretch
+patch=1,EE,2017D908,short,3E80 // Horizontal Field of view modifier
+patch=1,EE,2017DA58,short,4391 // Rearview mirror box horizontal position
+patch=1,EE,2017DA70,short,4270 // Rearview mirror box horizontal size
+patch=1,EE,201920BC,short,3E80 // Text-based HUD elements horizontal size
+patch=1,EE,20189798,short,3E80 // Text after licence completion, maybe more
+patch=1,EE,202271D8,short,3E80 // ModelFace after license completion
+//patch=1,EE,201C9400,short,3E80 // CarFace width modifier in dealership (Optional)
+patch=1,EE,20349F60,word,3EB6D98C // Rearview field of view
+patch=1,EE,20349FD4,word,3F533333 // HUD Canvas resizing
+patch=1,EE,20349FD8,word,3FE9999A
+patch=1,EE,2034A21E,short,C46E // Pause menu & race results canvas resizing
+patch=1,EE,2034A222,short,44C7
+
+[No Interlacing]
+author=Duchi/Vyerq
+description=Attempts to disable interlaced offset rendering.
+gsinterlacemode=1
+patch=1,EE,20256DB0,extended,34020001
+
+[Level of Details]
+author=Silentwarior112
+description=Eliminates most body level of detail pop-in during races.
+patch=1,EE,2021BD8A,short,1000
+patch=1,EE,2021CA16,short,1000
+patch=1,EE,2021F2E2,short,1000
+patch=1,EE,202212A2,short,1000
+
+[Remove Lamp-light Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on cars lamp and track lamp sources on evening/night tracks.
+patch=1,EE,2017DAE0,extended,10000021
+patch=1,EE,2017FA10,extended,03E00008
+patch=1,EE,2017FA14,extended,00000000
+
+[Remove Sun Ray Flare]
+author=thefirefox12537 (Original from Duchi/Vyerq)
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,201A6DA0,extended,03E00008
+patch=1,EE,201A6DA4,extended,00000000
+patch=1,EE,201A6E50,extended,03E00008
+patch=1,EE,201A6E54,extended,00000000
+
+[Remove Mirage Effects]
+author=Duchi/Vyerq
+description=Disable the mirage effects of the objects on Replay Mode.
+patch=1,EE,2017DD58,extended,00000000
+
+[Remove White Haze]
+author=Duchi/Vyerq
+description=Remove the distant white haze.
+patch=1,EE,201A6768,extended,3C0F7FFF
+patch=1,EE,201A6774,extended,448F6000
+
+[US Imperial Units]
+author=Silent & xan1242
+description=Change units to Imperial measurement format (United States).
+patch=1,EE,202F20D8,extended,1
+patch=1,EE,202F20DC,extended,1
+patch=1,EE,202F20E0,extended,1
+
+[UK Imperial Units]
+author=Silent & xan1242
+description=Change units to Imperial measurement format (United Kingdom/Canada).
+patch=1,EE,202F20D8,extended,1
+patch=1,EE,202F20DC,extended,2
+patch=1,EE,202F20E0,extended,0
+
+[Full Trigger Sensitivity]
+author=Silent, Aero_ & xan1242
+description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
+patch=1,EE,1020E678,extended,00000062 // Throttle
+patch=1,EE,1020E6C0,extended,00000062 // Brake
+patch=1,EE,1020E750,extended,00000062 // Reverse
+patch=1,EE,2020E474,extended,00000000 // Input multiplier
+
+[Reduce Vibration]
+author=Aero_
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,201DCE70,extended,3C014170 // lui at,0x4170 : Vibration Float

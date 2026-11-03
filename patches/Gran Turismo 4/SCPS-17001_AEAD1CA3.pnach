@@ -1,88 +1,77 @@
 gametitle=Gran Turismo 4 [SCPS-17001] (J) crc=AEAD1CA3
 
-[Autoboot in 16:9]
-author=thefirefox12537 (Ported from CRASHARKI)
-description=Enable Native Widescreen when the game is startup.
-; Force Aspect Ratio option to 16:9
-patch=1,EE,2060FA70,byte,1
-patch=1,EE,20AB33C4,byte,1
-; The Monitor from Secret options it cannot you modify manually:
-patch=1,EE,20AB33DC,word,438A05E3 // Distance view (in mm)
-patch=1,EE,20ABB3E0,word,43D48000 // Screen width (in mm)
-patch=1,EE,20ABB3E4,word,43700000 // Screen height (in mm)
-
 [Widescreen 16:10]
-author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+author=thefirefox12537 (Ported from Silentwarior112)
 description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 patch=1,EE,20ABB3E8,word,3F666666 // "Aspect" to 0.90
 patch=1,EE,20ABB3EC,word,3F666666 // "Overscan Factor" to 0.90
 patch=1,EE,00107324,word,3C013F55 // ModelFaces
-patch=1,EE,0039583C,word,3C013F8F // HUD Safezone
-patch=1,EE,003956C4,word,3C01C280 // HUD Canvas Size
+patch=1,EE,0039583C,word,3C013F8F // HUD safezone
+patch=1,EE,003956C4,word,3C01C280 // HUD canvas
 patch=1,EE,003956D0,word,3C01442F
-patch=1,EE,00395710,short,0200 // HUD Text Height
-patch=1,EE,00339888,short,01F2 // Rearview Mirror Height
+patch=1,EE,00395710,short,0200 // HUD text height
+patch=1,EE,00339888,short,01F2 // Rearview mirror height
 
 [Ultrawidescreen 20:9]
-author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
+patch=1,EE,20AB33E8,word,3FA03F4F // "Aspect" to 1.25
+patch=1,EE,00107324,word,3C013F1A // ModelFaces
 patch=1,EE,00102BE8,word,3C0143C8 // Loading spinner
 patch=1,EE,00102C08,word,3C01C3C8
 patch=1,EE,00103098,word,3C01C3C8 // Loading image
 patch=1,EE,001030A0,word,3C0143C8
-patch=1,EE,20AB33E8,word,3FA03F4F // "Aspect" to 1.25
-patch=1,EE,00107324,word,3C013F1A // ModelFaces
-patch=1,EE,003956C4,word,3C01C352 // HUD Canvas Size
+patch=1,EE,003956C4,word,3C01C352 // HUD canvas
 patch=1,EE,003956D0,word,3C014454
-patch=1,EE,00398B84,word,3C013F1A // HUD Text Width
-patch=1,EE,003398A8,short,0320 // Rearview Mirror Width
+patch=1,EE,00398B84,word,3C013F1A // HUD text width
+patch=1,EE,003398A8,short,0320 // Rearview mirror width
 
 [Ultrawidescreen 21:9]
-author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
+patch=1,EE,20AB33E8,word,3FA8427E // "Aspect" to 1.31
+patch=1,EE,00107324,word,3C013F12 // ModelFaces
 patch=1,EE,00102BE8,word,3C0143D2 // Loading spinner
 patch=1,EE,00102C08,word,3C01C3D2
 patch=1,EE,00103098,word,3C01C3D2 // Loading image
 patch=1,EE,001030A0,word,3C0143D2
-patch=1,EE,20AB33E8,word,3FA8427E // "Aspect" to 1.31
-patch=1,EE,00107324,word,3C013F12 // ModelFaces
-patch=1,EE,003956C4,word,3C01C36D // HUD Canvas Size
+patch=1,EE,003956C4,word,3C01C36D // HUD canvas
 patch=1,EE,003956D0,word,3C01445B
-patch=1,EE,00398B84,word,3C013F12 // HUD Text Width
-//patch=1,EE,003398A8,short,0348 // Rearview Mirror Width (Optional)
+patch=1,EE,00398B84,word,3C013F12 // HUD text width
+//patch=1,EE,003398A8,short,0348 // Rearview mirror width (Optional)
 
 [Ultrawidescreen 32:9]
-author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
+patch=1,EE,20AB33E8,word,40000000 // "Aspect" to 2.00
+patch=1,EE,00107324,word,3C013EC0 // ModelFaces
 patch=1,EE,00102BE8,word,3C014420 // Loading spinner
 patch=1,EE,00102C08,word,3C01C420
 patch=1,EE,00103098,word,3C01C420 // Loading image
 patch=1,EE,001030A0,word,3C014420
-patch=1,EE,20AB33E8,word,40000000 // "Aspect" to 2.00
-patch=1,EE,00107324,word,3C013EC0 // ModelFaces
-patch=1,EE,003956C4,word,3C01C404 // HUD Canvas Size
+patch=1,EE,003956C4,word,3C01C404 // HUD canvas
 patch=1,EE,003956D0,word,3C014492
-patch=1,EE,00398B84,word,3C013EC0 // HUD Text Width
-patch=1,EE,003398A8,short,03CF // Rearview Mirror Width
+patch=1,EE,00398B84,word,3C013EC0 // HUD text width
+patch=1,EE,003398A8,short,03CF // Rearview Mmrror width
 
 [Ultrawidescreen 48:9]
-author=thefirefox12537 (Ported from UnixRoot, Silentwarior112)
+author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
+patch=1,EE,20AB33E8,word,40400000 // "Aspect" to 3.00
+patch=1,EE,00107324,word,3C013E80 // ModelFaces
 patch=1,EE,00102BE8,word,3C014460 // Loading spinner
 patch=1,EE,00102C08,word,3C01C460
 patch=1,EE,00103098,word,3C01C460 // Loading image
 patch=1,EE,001030A0,word,3C014460
-patch=1,EE,20AB33E8,word,40400000 // "Aspect" to 3.00
-patch=1,EE,00107324,word,3C013E80 // ModelFaces
-patch=1,EE,003956C4,word,3C01C46E // HUD Canvas Size
+patch=1,EE,003956C4,word,3C01C46E // HUD canvas
 patch=1,EE,003956D0,word,3C0144C7
-patch=1,EE,00398B84,word,3C013E80 // HUD Text Width
-patch=1,EE,003398A8,short,05B7 // Rearview Mirror Width
+patch=1,EE,00398B84,word,3C013E80 // HUD text width
+patch=1,EE,003398A8,short,05B7 // Rearview mirror width
 
 [No Interlacing]
 author=Duchi/Vyerq & Silentwarior112
@@ -132,7 +121,7 @@ patch=1,EE,2036768C,extended,3C014170 // lui at,0x4170 : Vibration Float
 [360° View Chase Camera]
 author=Duchi/Vyerq
 description=When looking backwards, the camera can be rotated horizontally with right analog stick.
-; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x33FE888
+; Jump to 0xF1100 (custom code) at computeViewAngle() - 0x2033FE88
 patch=1,EE,2033FE88,extended,0C03C440
 ; New function start - Get pad value (pad2/ds2u_d.irx mem value) from 89715E
 patch=1,EE,200F1100,extended,3C0F0086
@@ -148,8 +137,8 @@ patch=1,EE,200F111C,extended,461FF7C2
 patch=1,EE,200F1120,extended,080D9C44
 patch=1,EE,200F1124,extended,460DFB40
 ; Disable right analog stick function on Throttle/Brake
-patch=1,EE,20431176,short,1000
-patch=1,EE,2043119E,short,1000
+patch=1,EE,20431176,extended,1000
+patch=1,EE,2043119E,extended,1000
 
 [Loose Chase Camera]
 author=Silentwarior112 (Ported from CookiePLMonster/Silent)
