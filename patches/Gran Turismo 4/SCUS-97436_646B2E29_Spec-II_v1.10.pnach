@@ -22,7 +22,8 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
-// Set the "Aspect" and "Overscan Factor" manually to 0.90 in Monitor (Secret Option)
+patch=1,EE,209BDD48,word,3F68AB7E // "Aspect" to 0.90
+patch=1,EE,209BDD4C,word,3F68AB7E // "Overscan Factor" to 0.90
 patch=1,EE,00353604,word,3C013F55 // ModelFaces
 patch=1,EE,001C113C,short,4405 // HUD height
 patch=1,EE,001C517C,short,C356 // HUD vertical position
@@ -36,7 +37,7 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=thefirefox12537 (Original from Silentwarior112), Aero_
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
-// Set the "Aspect" manually to 1.25 in Monitor (Secret Option)
+patch=1,EE,209BDD48,word,3FA03F4F // "Aspect" to 1.25
 patch=1,EE,00353604,word,3C013F1A // ModelFaces
 patch=1,EE,001023E8,word,3C0143C8 // Loading spinner
 patch=1,EE,00102408,word,3C01C3C8
@@ -56,7 +57,7 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
-// Set the "Aspect" manually to 1.31 in Monitor (Secret Option)
+patch=1,EE,209BDD48,word,3FA8427E // "Aspect" to 1.31
 patch=1,EE,00353604,word,3C013F12 // ModelFaces
 patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
 patch=1,EE,00102408,word,3C01C3D2
@@ -76,7 +77,7 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
-// Set the "Aspect" manually to 2.00 in Monitor (Secret Option)
+patch=1,EE,209BDD48,word,40000000 // "Aspect" to 2.00
 patch=1,EE,00353604,word,3C013EC0 // ModelFaces
 patch=1,EE,001023E8,word,3C014420 // Loading spinner
 patch=1,EE,00102408,word,3C01C420
@@ -96,7 +97,7 @@ patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
-// Set the "Aspect" manually to 3.00 in Monitor (Secret Option)
+patch=1,EE,209BDD48,word,40400000 // "Aspect" to 3.00
 patch=1,EE,00353604,word,3C013E80 // ModelFaces
 patch=1,EE,001023E8,word,3C0143D2 // Loading spinner
 patch=1,EE,00102408,word,3C01C3D2
@@ -113,12 +114,14 @@ patch=1,EE,2033D7DC,extended,3C013E89 // lui at, 0x3E89
 patch=1,EE,2033D7E0,extended,34210000 // ori at, 0x0000
 
 [No Interlacing]
-author=CookiePLMonster/Silentwarior112
-description=The race will always start in 480p instead of 480i.
+author=Silentwarior112 & thefirefox12537
 gsinterlacemode=1
+; Progressive scan mode in Menus to disable interlaced offset rendering
 patch=1,EE,2059F25C,extended,0000102D
-patch=1,EE,20312544,extended,34080001
-patch=1,EE,20312558,extended,AE481718
+; Progressive scan mode in Races to reduce blur and sharpen image rendering
+patch=1,EE,209BF428,byte,1
+patch=1,EE,D06655E4,extended,1
+patch=1,EE,206655E4,extended,2
 
 [Full Trigger Sensitivity]
 author=Silent & Aero_
@@ -168,7 +171,7 @@ patch=1,EE,2068B094,extended,1442000A
 [Pit Crew Motion]
 author=Duchi/Vyerq
 description=Unlocks the FPS for Pit Crews.
-patch=1,EE,202AC2FC,extended,01
+patch=1,EE,202AC2FC,byte,1
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq

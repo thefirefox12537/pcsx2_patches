@@ -131,6 +131,20 @@ patch=1,EE,2099DAA8,byte,1
 patch=1,EE,D06655E4,extended,1
 patch=1,EE,206655E4,extended,2
 
+[EE Clamping Fix]
+author=kozarovv
+description=An attempt to solve some of the bugs caused by the normal clamping mode in PCSX2.
+patch=1,EE,E0022CC4,extended,018798CE
+patch=1,EE,218798C0,extended,0803FF00
+patch=1,EE,218798C4,extended,240F0008
+patch=1,EE,000FFC00,double,3739FFFF3C197FFF
+patch=1,EE,000FFC08,double,24187F7F8CA30000
+patch=1,EE,000FFC10,double,A4B8000250790001
+patch=1,EE,000FFC18,double,540FFFFA25EFFFFF
+patch=1,EE,000FFC20,double,24A5FFE424A50004
+patch=1,EE,000FFC28,double,0861E63278A30000
+patch=1,EE,000FFC30,double,0000000024C6FFE0
+
 [Full Trigger Sensitivity]
 author=Silent & Aero_
 description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
@@ -196,11 +210,10 @@ patch=1,EE,1023F3DA,extended,8442
 patch=1,EE,20662B30,extended,00010000
 patch=1,EE,20662B34,extended,00060014
 
-[60 FPS]
-author=PeterDelta & Duchi/Vyerq
-description=Unlock the motion races or menus it not the 60 FPS.
-patch=1,EE,00665794,extended,01 // Photo Mode
-patch=1,EE,202AC2FC,extended,01 // Pit Crew
+[Pit Crew Motion]
+author=Duchi/Vyerq
+description=Unlocks the FPS for Pit Crews.
+patch=1,EE,202AC2FC,byte,1
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq

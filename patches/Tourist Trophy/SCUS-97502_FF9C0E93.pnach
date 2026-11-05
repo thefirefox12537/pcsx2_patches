@@ -86,7 +86,7 @@ patch=1,EE,003508BC,word,3C01C4A0 // HUD canvas
 patch=1,EE,003508F0,word,3C01443B
 patch=1,EE,003547D4,word,3C013EC0 // HUD text width
 ; Corrects the text aspect ratio
-patch=1,EE,204615FC,extended,3C013ECD // lui at,0x3F1C
+patch=1,EE,204615FC,extended,3C013ECD // lui at,0x3ECD
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
 
 [Ultrawidescreen 48:9]
@@ -105,15 +105,18 @@ patch=1,EE,003508BC,word,3C01C507 // HUD canvas
 patch=1,EE,003508F0,word,3C014495
 patch=1,EE,003547D4,word,3C013E80 // HUD text width
 ; Corrects the text aspect ratio
-patch=1,EE,204615FC,extended,3C013E89 // lui at,0x3F1C
+patch=1,EE,204615FC,extended,3C013E89 // lui at,0x3E89
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
 
 [No Interlacing]
-author=Silentwarior112 & Blackbird
-description=The races will always start races in 480p instead of 480i.
+author=Silentwarior112 & thefirefox12537
 gsinterlacemode=1
+; Progressive scan mode in Menus to disable interlaced offset rendering
 patch=1,EE,204704FC,extended,0000102D
+; Progressive scan mode in Races to reduce blur and sharpen image rendering
 patch=1,EE,20829248,byte,1
+patch=1,EE,D0579654,extended,1
+patch=1,EE,20579654,extended,1
 
 [Full Trigger Sensitivity]
 author=Silent & Aero_
@@ -125,6 +128,11 @@ patch=1,EE,20403B6C,extended,00000000
 patch=1,EE,10403AF4,extended,00000062
 patch=1,EE,20403BC8,extended,00000000
 
+[Reduce Vibration]
+author=thefirefox12537 (Ported from Aero_)
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,20315904,extended,3C014170 // lui at,0x4170 : Vibration Float
+
 [Loose Chase Camera]
 author=Silent
 description=Makes the exterior camera looser when turn like GT3 A-Spec.
@@ -133,7 +141,7 @@ description=Makes the exterior camera looser when turn like GT3 A-Spec.
 ; even stiffer (like in GT5/6), increase the damper value.
 ;
 ; Camera damper, higher values make the camera center quicker
-patch=1,EE,1058499A,extended,1E1E // 30. Default - 120.0
+patch=1,EE,1058499A,extended,1E1E // 30. Default - 120
 patch=1,EE,1058499C,extended,1E1E
 ; Camera max angle, higher values make the camera lean further to the sides
 patch=1,EE,1058499E,extended,0A0A // 10. Default - 15
@@ -152,3 +160,48 @@ patch=1,EE,00323968,extended,40
 patch=1,EE,1032397A,extended,8442
 patch=1,EE,20583D88,extended,00010000
 patch=1,EE,20583D8C,extended,00060014
+
+[Pit Crew Motion]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Unlocks the FPS for Pit Crews.
+patch=1,EE,2039BCAC,byte,1
+
+[Remove Boke-blur Effects]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Remove the boke-blur effects on Replay Mode.
+patch=1,EE,202D113C,word,0
+patch=1,EE,202D1290,word,0
+
+[Remove Mirage Effects]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the mirage effects of the objects on Replay Mode.
+patch=1,EE,202D22C4,word,0
+
+[Remove Bike Lights Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare cast from all bikes taillight/headlight.
+patch=1,EE,20345FC8,extended,03E00008
+patch=1,EE,20345FCC,extended,00000000
+
+[Remove Track Lights Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare that appear on light sources on evening/night tracks.
+patch=1,EE,2034D0A0,extended,03E00008
+patch=1,EE,2034D0A4,extended,00000000
+
+[Remove Sun Ray Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,2034E268,extended,03E00008
+patch=1,EE,2034E26C,extended,00000000
+
+[FoV Adjustment]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D05986F4,extended,0000FFEB
+patch=1,EE,30200002,extended,00322DB4
+patch=1,EE,D05986F4,extended,0000FFBB
+patch=1,EE,30300002,extended,00322DB4
+patch=1,EE,D05986F4,extended,0000FFF9
+patch=1,EE,20322DB4,extended,3C013F80
