@@ -1,0 +1,207 @@
+gametitle=Tourist Trophy [SCUS-97502] (U) crc=FF9C0E93
+
+[Widescreen 16:9]
+author=thefirefox12537 (Ported from GT4 Widescreen by Aero_)
+description=Corrects the text aspect ratio when 16:9 is selected in the options menu.
+gsaspectratio=16:9
+patch=1,EE,204615FC,extended,3C013F40 // lui at, 0x3F40
+patch=1,EE,20461600,extended,34210000 // ori at, 0x0000
+
+[Widescreen 16:9 (Safe Area)]
+author=thefirefox12537 (Ported from GT4-OPB WS Safe Area by Silentwarior112)
+description=90% margin safe area on HUD.
+gsaspectratio=16:9
+patch=1,EE,00350AF4,short,3F88 // HUD safe area
+patch=1,EE,0035091C,short,01F2 // HUD text height
+patch=1,EE,003547D4,word,3C013F2D // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013F40 // lui at, 0x3F40
+patch=1,EE,20461600,extended,34210000 // ori at, 0x0000
+
+[Widescreen 16:10]
+author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
+description=Widescreen Hacks to aspect ratio 16:10.
+gsaspectratio=Stretch
+patch=1,EE,20827068,word,3F68AB7E // "Aspect" to 0.90
+patch=1,EE,2082706C,word,3F68AB7E // "Overscan Factor" to 0.90
+patch=1,EE,0017AE04,word,3C013F55 // ModelFaces
+patch=1,EE,003508FC,short,4405 // HUD height
+patch=1,EE,0035091C,short,01F2 // HUD text height
+patch=1,EE,003547B4,short,C356 // HUD vertical position
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013F63 // lui at, 0x3F63
+patch=1,EE,20461600,extended,34210000 // ori at, 0x0000
+
+[Ultrawidescreen 20:9]
+author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
+description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
+gsaspectratio=Stretch
+patch=1,EE,00827B68,word,3FA03F4F // "Aspect" to 1.25
+patch=1,EE,0017AE04,word,3C013F1A // ModelFaces
+patch=1,EE,00102480,word,3C0143C8 // Loading spinner
+patch=1,EE,00102498,word,3C01C3C8
+patch=1,EE,00102600,word,3C01C3C8 // Loading image
+patch=1,EE,00102608,word,3C0143C8
+patch=1,EE,00102610,word,3C01C380
+patch=1,EE,00102618,word,3C014380
+patch=1,EE,003508BC,word,3C01C41D // HUD canvas
+patch=1,EE,003508F0,word,3C0143D2
+patch=1,EE,003547D4,word,3C013F1A // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013F24 // lui at,0x3F24
+patch=1,EE,20461600,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 21:9]
+author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 21:9.
+gsaspectratio=Stretch
+patch=1,EE,20827068,word,3FA8427E // "Aspect" to 1.31
+patch=1,EE,0017AE04,word,3C013F12 // ModelFaces
+patch=1,EE,00102480,word,3C0143D2 // Loading spinner
+patch=1,EE,00102498,word,3C01C3D2
+patch=1,EE,00102600,word,3C01C3D2 // Loading image
+patch=1,EE,00102608,word,3C0143D2
+patch=1,EE,00102610,word,3C01C374
+patch=1,EE,00102618,word,3C014374
+patch=1,EE,003508BC,word,3C01C429 // HUD canvas
+patch=1,EE,003508F0,word,3C0143DF
+patch=1,EE,003547D4,word,3C013F12 // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013F1C // lui at,0x3F1C
+patch=1,EE,20461600,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 32:9]
+author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 32:9.
+gsaspectratio=Stretch
+patch=1,EE,20827068,word,40000000 // "Aspect" to 2.00
+patch=1,EE,0017AE04,word,3C013EC0 // ModelFaces
+patch=1,EE,00102480,word,3C014420 // Loading spinner
+patch=1,EE,00102498,word,3C01C420
+patch=1,EE,00102600,word,3C01C420 // Loading image
+patch=1,EE,00102608,word,3C014420
+patch=1,EE,00102610,word,3C01C320
+patch=1,EE,00102618,word,3C014320
+patch=1,EE,003508BC,word,3C01C4A0 // HUD canvas
+patch=1,EE,003508F0,word,3C01443B
+patch=1,EE,003547D4,word,3C013EC0 // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013ECD // lui at,0x3ECD
+patch=1,EE,20461600,extended,34210000 // ori at,0x0000
+
+[Ultrawidescreen 48:9]
+author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
+description=Ultrawidescreen Hacks to aspect ratio 48:9.
+gsaspectratio=Stretch
+patch=1,EE,20827068,word,40400000 // "Aspect" to 3.00
+patch=1,EE,0017AE04,word,3C013E80 // ModelFaces
+patch=1,EE,00102480,word,3C0143D2 // Loading spinner
+patch=1,EE,00102498,word,3C01C3D2
+patch=1,EE,00102600,word,3C01C3D2 // Loading image
+patch=1,EE,00102608,word,3C0143D2
+patch=1,EE,00102610,word,3C01C374
+patch=1,EE,00102618,word,3C014374
+patch=1,EE,003508BC,word,3C01C507 // HUD canvas
+patch=1,EE,003508F0,word,3C014495
+patch=1,EE,003547D4,word,3C013E80 // HUD text width
+; Corrects the text aspect ratio
+patch=1,EE,204615FC,extended,3C013E89 // lui at,0x3E89
+patch=1,EE,20461600,extended,34210000 // ori at,0x0000
+
+[No Interlacing]
+author=Silentwarior112 & thefirefox12537
+gsinterlacemode=1
+; Progressive scan mode in Menus to disable interlaced offset rendering
+patch=1,EE,204704FC,extended,0000102D
+; Progressive scan mode in Races to reduce blur and sharpen image rendering
+patch=1,EE,20828748,byte,1
+patch=1,EE,D0579654,extended,1
+patch=1,EE,20579654,extended,1
+
+[Full Trigger Sensitivity]
+author=Silent & Aero_
+description=Allows the full range of the triggers (L2 & R2) to be used for throttle and brake inputs.
+; Throttle
+patch=1,EE,10403AEC,extended,00000062
+patch=1,EE,20403B6C,extended,00000000
+; Brake
+patch=1,EE,10403AF4,extended,00000062
+patch=1,EE,20403BC8,extended,00000000
+
+[Reduce Vibration]
+author=thefirefox12537 (Ported from Aero_)
+description=Reduces the strength of the controller's vibration.
+patch=1,EE,20315904,extended,3C014170 // lui at,0x4170 : Vibration Float
+
+[Loose Chase Camera]
+author=Silent
+description=Makes the exterior camera looser when turn like GT3 A-Spec.
+; Default parameters in this cheat correspond to the values from GT4 First Preview,
+; but you may freely customize them. For example, if you want to make the camera
+; even stiffer (like in GT5/6), increase the damper value.
+;
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,1058499A,extended,1E1E // 30. Default - 120
+patch=1,EE,1058499C,extended,1E1E
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,1058499E,extended,0A0A // 10. Default - 15
+patch=1,EE,105849A0,extended,0A0A
+
+[High Chase Camera]
+author=Silent
+description=Added GT4 First Preview camera mode.
+; Swap 4-byte instructions to 2-byte ones to make space
+patch=1,EE,2032391C,extended,84E30000
+patch=1,EE,10323920,extended,0002
+patch=1,EE,10323930,extended,0004
+patch=1,EE,20323940,extended,84E30000
+patch=1,EE,10323950,extended,0004
+patch=1,EE,00323968,extended,40
+patch=1,EE,1032397A,extended,8442
+patch=1,EE,20583D88,extended,00010000
+patch=1,EE,20583D8C,extended,00060014
+
+[Pit Crew Motion]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Unlocks the FPS for Pit Crews.
+patch=1,EE,2039BCAC,byte,1
+
+[Remove Boke-blur Effects]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Remove the boke-blur effects on Replay Mode.
+patch=1,EE,202D113C,word,0
+patch=1,EE,202D1290,word,0
+
+[Remove Mirage Effects]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the mirage effects of the objects on Replay Mode.
+patch=1,EE,202D22C4,word,0
+
+[Remove Bike Lights Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare cast from all bikes taillight/headlight.
+patch=1,EE,20345FC8,extended,03E00008
+patch=1,EE,20345FCC,extended,00000000
+
+[Remove Track Lights Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare that appear on light sources on evening/night tracks.
+patch=1,EE,2034D0A0,extended,03E00008
+patch=1,EE,2034D0A4,extended,00000000
+
+[Remove Sun Ray Flare]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+description=Removes the lens flare that appear on some tracks when facing the sun ray.
+patch=1,EE,2034E268,extended,03E00008
+patch=1,EE,2034E26C,extended,00000000
+
+[FoV Adjustment]
+author=thefirefox12537 (Ported from Duchi/Vyerq)
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D05986F4,extended,0000FFEB
+patch=1,EE,30200002,extended,00322DB4
+patch=1,EE,D05986F4,extended,0000FFBB
+patch=1,EE,30300002,extended,00322DB4
+patch=1,EE,D05986F4,extended,0000FFF9
+patch=1,EE,20322DB4,extended,3C013F80
