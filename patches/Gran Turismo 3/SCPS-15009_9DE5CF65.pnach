@@ -108,6 +108,22 @@ description=Remove the distant white haze.
 patch=1,EE,201A6768,extended,3C0F7FFF
 patch=1,EE,201A6774,extended,448F6000
 
+[Stiff Chase Camera (GT4-style)]
+author=Blitznoz
+description=Makes the exterior camera stiffen when turn like GT4.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,2034CAD0,extended,42F00000 // 120. Default - 30
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,2034CAD8,extended,41700000 // 15. Default - 10
+
+[Stiff Chase Camera (GT7-style)]
+author=thefirefox12537 (Original from Blitznoz)
+description=Makes the exterior camera stiffen when turn like GT7.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,2034CAD0,extended,44610000 // 900. Default - 30
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,2034CAD8,extended,42200000 // 40. Default - 10
+
 [US Imperial Units]
 author=Silent & xan1242
 description=Change units to Imperial measurement format (United States).
@@ -134,3 +150,14 @@ patch=1,EE,2020E474,extended,00000000 // Input multiplier
 author=Aero_
 description=Reduces the strength of the controller's vibration.
 patch=1,EE,201DCE70,extended,3C014170 // lui at,0x4170 : Vibration Float
+
+[FoV Adjustment]
+author=Blitznoz (Ported from Duchi/Vyerq)
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D02E6F8A,extended,0000FFEB
+patch=1,EE,30200001,extended,001FD700
+patch=1,EE,D02E6F8A,extended,0000FFBB
+patch=1,EE,30300001,extended,001FD700
+patch=1,EE,D02E6F8A,extended,0000FFF9
+patch=1,EE,201FD700,extended,3C013F80

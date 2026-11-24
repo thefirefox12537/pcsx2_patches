@@ -23,10 +23,10 @@ description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 patch=1,EE,20A44B78,word,3F666666 // "Aspect" to 0.90
 patch=1,EE,20A44B7C,word,3F666666 // "Overscan Factor" to 0.90
-patch=1,EE,0010732C,word,3C013F55 // ModelFaces
-patch=1,EE,0039BB54,word,3C013F8F // HUD safezone
-patch=1,EE,0039BA14,word,3C01C280 // HUD canvas
-patch=1,EE,0039BA20,word,3C01442F
+patch=1,EE,0010732C,short,3F55 // ModelFaces
+patch=1,EE,0039BB54,short,3F8F // HUD safezone
+patch=1,EE,0039BA14,short,C280 // HUD canvas
+patch=1,EE,0039BA20,short,442F
 patch=1,EE,0039BA60,short,0200 // HUD text height
 patch=1,EE,0033EF78,short,01F2 // Rearview mirror height
 ; Correct the text aspect ratio
@@ -48,14 +48,14 @@ author=thefirefox12537 (Original from Silentwarior112), Aero_
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
 patch=1,EE,20A44B78,word,3FA03F4F // "Aspect" to 1.25
-patch=1,EE,0010732C,word,3C013F1A // ModelFaces
-patch=1,EE,00102BE0,word,3C0143C8 // Loading spinner
-patch=1,EE,00102C00,word,3C01C3C8
-patch=1,EE,00103090,word,3C01C3C8 // Loading image
-patch=1,EE,00103098,word,3C0143C8
-patch=1,EE,0039BA14,word,3C01C352 // HUD canvas
-patch=1,EE,0039BA20,word,3C014454
-patch=1,EE,0039F554,word,3C013F1A // HUD text width
+patch=1,EE,0010732C,short,3F1A // ModelFaces
+patch=1,EE,00102BE0,short,43C8 // Loading spinner
+patch=1,EE,00102C00,short,C3C8
+patch=1,EE,00103090,short,C3C8 // Loading image
+patch=1,EE,00103098,short,43C8
+patch=1,EE,0039BA14,short,C352 // HUD canvas
+patch=1,EE,0039BA20,short,4454
+patch=1,EE,0039F554,short,3F1A // HUD text width
 patch=1,EE,0033EF98,short,0320 // Rearview mirror width
 ; Correct the text aspect ratio
 patch=1,EE,20492A30,extended,08125570 // j 004955C0
@@ -76,14 +76,14 @@ author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
 patch=1,EE,20A44B78,word,3FA8427E // "Aspect" to 1.31
-patch=1,EE,0010732C,word,3C013F12 // ModelFaces
-patch=1,EE,00102BE0,word,3C0143D2 // Loading spinner
-patch=1,EE,00102C00,word,3C01C3D2
-patch=1,EE,00103090,word,3C01C3D2 // Loading image
-patch=1,EE,00103098,word,3C0143D2
-patch=1,EE,0039BA14,word,3C01C36D // HUD canvas
-patch=1,EE,0039BA20,word,3C01445B
-patch=1,EE,0039F554,word,3C013F12 // HUD text width
+patch=1,EE,0010732C,short,3F12 // ModelFaces
+patch=1,EE,00102BE0,short,43D2 // Loading spinner
+patch=1,EE,00102C00,short,C3D2
+patch=1,EE,00103090,short,C3D2 // Loading image
+patch=1,EE,00103098,short,43D2
+patch=1,EE,0039BA14,short,C36D // HUD canvas
+patch=1,EE,0039BA20,short,445B
+patch=1,EE,0039F554,short,3F12 // HUD text width
 //patch=1,EE,0033EF98,short,0348 // Rearview mirror width (Optional)
 ; Correct the text aspect ratio
 patch=1,EE,20492A30,extended,08125570 // j 004955C0
@@ -104,14 +104,14 @@ author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
 patch=1,EE,20A44B78,word,40000000 // "Aspect" to 2.00
-patch=1,EE,0010732C,word,3C013EC0 // ModelFaces
-patch=1,EE,00102BE0,word,3C014420 // Loading spinner
-patch=1,EE,00102C00,word,3C01C420
-patch=1,EE,00103090,word,3C01C420 // Loading image
-patch=1,EE,00103098,word,3C014420
-patch=1,EE,0039BA14,word,3C01C404 // HUD canvas
-patch=1,EE,0039BA20,word,3C014492
-patch=1,EE,0039F554,word,3C013EC0 // HUD text width
+patch=1,EE,0010732C,short,3EC0 // ModelFaces
+patch=1,EE,00102BE0,short,4420 // Loading spinner
+patch=1,EE,00102C00,short,C420
+patch=1,EE,00103090,short,C420 // Loading image
+patch=1,EE,00103098,short,4420
+patch=1,EE,0039BA14,short,C404 // HUD canvas
+patch=1,EE,0039BA20,short,4492
+patch=1,EE,0039F554,short,3EC0 // HUD text width
 patch=1,EE,0033EF98,short,03CF // Rearview mirror width
 ; Correct the text aspect ratio
 patch=1,EE,20492A30,extended,08125570 // j 004955C0
@@ -132,14 +132,14 @@ author=Silentwarior112 & Aero_
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
 patch=1,EE,20A44B78,word,40400000 // "Aspect" to 3.00
-patch=1,EE,0010732C,word,3C013E80 // ModelFaces
-patch=1,EE,00102BE0,word,3C014460 // Loading spinner
-patch=1,EE,00102C00,word,3C01C460
-patch=1,EE,00103090,word,3C01C460 // Loading image
-patch=1,EE,00103098,word,3C014460
-patch=1,EE,0039BA14,word,3C01C46E // HUD canvas
-patch=1,EE,0039BA20,word,3C0144C7
-patch=1,EE,0039F554,word,3C013E80 // HUD text width
+patch=1,EE,0010732C,short,3E80 // ModelFaces
+patch=1,EE,00102BE0,short,4460 // Loading spinner
+patch=1,EE,00102C00,short,C460
+patch=1,EE,00103090,short,C460 // Loading image
+patch=1,EE,00103098,short,4460
+patch=1,EE,0039BA14,short,C46E // HUD canvas
+patch=1,EE,0039BA20,short,44C7
+patch=1,EE,0039F554,short,3E80 // HUD text width
 patch=1,EE,0033EF98,short,05B7 // Rearview mirror width
 ; Correct the text aspect ratio
 patch=1,EE,20492A30,extended,08125570 // j 004955C0
@@ -230,9 +230,17 @@ description=Makes the exterior camera looser when turn like GT3 A-Spec.
 ; even stiffer (like in GT5/6), increase the damper value.
 ;
 ; Camera damper, higher values make the camera center quicker
-patch=1,EE,2069F4C8,extended,41F00000 // 30.0. Default - 120.0
+patch=1,EE,2069F4C8,extended,41F00000 // 30. Default - 120
 ; Camera max angle, higher values make the camera lean further to the sides
-patch=1,EE,2069F4D0,extended,41200000 // 10.0. Default - 15.0
+patch=1,EE,2069F4D0,extended,41200000 // 10. Default - 15
+
+[Stiff Chase Camera]
+author=thefirefox12537 (Original from Silent)
+description=Makes the exterior camera stiffen when turn like GT7.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,2069F4C8,extended,44610000 // 900. Default - 120
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,2069F4D0,extended,42200000 // 40. Default - 15
 
 [High Chase Camera]
 author=Silent
@@ -251,8 +259,8 @@ patch=1,EE,206211EC,extended,00060014
 [60 FPS]
 author=PeterDelta & Duchi/Vyerq
 description=Unlock the motion races or menus it not the 60 FPS.
-patch=1,EE,006186E4,extended,01 // Photo Mode
-patch=1,EE,203D1F3C,extended,01 // Pit Crew
+patch=1,EE,006186E4,byte,1 // Photo Mode
+patch=1,EE,203D1F3C,byte,1 // Pit Crew
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq

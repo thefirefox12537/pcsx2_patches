@@ -6,10 +6,10 @@ description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 patch=1,EE,20ABB3E8,word,3F666666 // "Aspect" to 0.90
 patch=1,EE,20ABB3EC,word,3F666666 // "Overscan Factor" to 0.90
-patch=1,EE,00107324,word,3C013F55 // ModelFaces
-patch=1,EE,0039583C,word,3C013F8F // HUD safezone
-patch=1,EE,003956C4,word,3C01C280 // HUD canvas
-patch=1,EE,003956D0,word,3C01442F
+patch=1,EE,00107324,short,3F55 // ModelFaces
+patch=1,EE,0039583C,short,3F8F // HUD safezone
+patch=1,EE,003956C4,short,C280 // HUD canvas
+patch=1,EE,003956D0,short,442F
 patch=1,EE,00395710,short,0200 // HUD text height
 patch=1,EE,00339888,short,01F2 // Rearview mirror height
 
@@ -18,14 +18,14 @@ author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
 patch=1,EE,20AB33E8,word,3FA03F4F // "Aspect" to 1.25
-patch=1,EE,00107324,word,3C013F1A // ModelFaces
-patch=1,EE,00102BE8,word,3C0143C8 // Loading spinner
-patch=1,EE,00102C08,word,3C01C3C8
-patch=1,EE,00103098,word,3C01C3C8 // Loading image
-patch=1,EE,001030A0,word,3C0143C8
-patch=1,EE,003956C4,word,3C01C352 // HUD canvas
-patch=1,EE,003956D0,word,3C014454
-patch=1,EE,00398B84,word,3C013F1A // HUD text width
+patch=1,EE,00107324,short,3F1A // ModelFaces
+patch=1,EE,00102BE8,short,43C8 // Loading spinner
+patch=1,EE,00102C08,short,C3C8
+patch=1,EE,00103098,short,C3C8 // Loading image
+patch=1,EE,001030A0,short,43C8
+patch=1,EE,003956C4,short,C352 // HUD canvas
+patch=1,EE,003956D0,short,4454
+patch=1,EE,00398B84,short,3F1A // HUD text width
 patch=1,EE,003398A8,short,0320 // Rearview mirror width
 
 [Ultrawidescreen 21:9]
@@ -33,14 +33,14 @@ author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
 patch=1,EE,20AB33E8,word,3FA8427E // "Aspect" to 1.31
-patch=1,EE,00107324,word,3C013F12 // ModelFaces
-patch=1,EE,00102BE8,word,3C0143D2 // Loading spinner
-patch=1,EE,00102C08,word,3C01C3D2
-patch=1,EE,00103098,word,3C01C3D2 // Loading image
-patch=1,EE,001030A0,word,3C0143D2
-patch=1,EE,003956C4,word,3C01C36D // HUD canvas
-patch=1,EE,003956D0,word,3C01445B
-patch=1,EE,00398B84,word,3C013F12 // HUD text width
+patch=1,EE,00107324,short,3F12 // ModelFaces
+patch=1,EE,00102BE8,short,43D2 // Loading spinner
+patch=1,EE,00102C08,short,C3D2
+patch=1,EE,00103098,short,C3D2 // Loading image
+patch=1,EE,001030A0,short,43D2
+patch=1,EE,003956C4,short,C36D // HUD canvas
+patch=1,EE,003956D0,short,445B
+patch=1,EE,00398B84,short,3F12 // HUD text width
 //patch=1,EE,003398A8,short,0348 // Rearview mirror width (Optional)
 
 [Ultrawidescreen 32:9]
@@ -48,14 +48,14 @@ author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
 patch=1,EE,20AB33E8,word,40000000 // "Aspect" to 2.00
-patch=1,EE,00107324,word,3C013EC0 // ModelFaces
-patch=1,EE,00102BE8,word,3C014420 // Loading spinner
-patch=1,EE,00102C08,word,3C01C420
-patch=1,EE,00103098,word,3C01C420 // Loading image
-patch=1,EE,001030A0,word,3C014420
-patch=1,EE,003956C4,word,3C01C404 // HUD canvas
-patch=1,EE,003956D0,word,3C014492
-patch=1,EE,00398B84,word,3C013EC0 // HUD text width
+patch=1,EE,00107324,short,3EC0 // ModelFaces
+patch=1,EE,00102BE8,short,4420 // Loading spinner
+patch=1,EE,00102C08,short,C420
+patch=1,EE,00103098,short,C420 // Loading image
+patch=1,EE,001030A0,short,4420
+patch=1,EE,003956C4,short,C404 // HUD canvas
+patch=1,EE,003956D0,short,4492
+patch=1,EE,00398B84,short,3EC0 // HUD text width
 patch=1,EE,003398A8,short,03CF // Rearview Mmrror width
 
 [Ultrawidescreen 48:9]
@@ -63,14 +63,14 @@ author=thefirefox12537 (Ported from Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
 patch=1,EE,20AB33E8,word,40400000 // "Aspect" to 3.00
-patch=1,EE,00107324,word,3C013E80 // ModelFaces
-patch=1,EE,00102BE8,word,3C014460 // Loading spinner
-patch=1,EE,00102C08,word,3C01C460
-patch=1,EE,00103098,word,3C01C460 // Loading image
-patch=1,EE,001030A0,word,3C014460
-patch=1,EE,003956C4,word,3C01C46E // HUD canvas
-patch=1,EE,003956D0,word,3C0144C7
-patch=1,EE,00398B84,word,3C013E80 // HUD text width
+patch=1,EE,00107324,short,3E80 // ModelFaces
+patch=1,EE,00102BE8,short,4460 // Loading spinner
+patch=1,EE,00102C08,short,C460
+patch=1,EE,00103098,short,C460 // Loading image
+patch=1,EE,001030A0,short,4460
+patch=1,EE,003956C4,short,C46E // HUD canvas
+patch=1,EE,003956D0,short,44C7
+patch=1,EE,00398B84,short,3E80 // HUD text width
 patch=1,EE,003398A8,short,05B7 // Rearview mirror width
 
 [No Interlacing]
@@ -148,9 +148,17 @@ description=Makes the exterior camera looser when turn like GT3 A-Spec.
 ; even stiffer (like in GT5/6), increase the damper value.
 ;
 ; Camera damper, higher values make the camera center quicker
-patch=1,EE,20695A08,extended,41F00000 // 30.0. Default - 120.0
+patch=1,EE,20695A08,extended,41F00000 // 30. Default - 120
 ; Camera max angle, higher values make the camera lean further to the sides
-patch=1,EE,20695A14,extended,41200000 // 10.0. Default - 15.0
+patch=1,EE,20695A14,extended,41200000 // 10. Default - 15
+
+[Stiff Chase Camera]
+author=thefirefox12537 (Ported from Silent)
+description=Makes the exterior camera stiffen when turn like GT7.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,20695A08,extended,44610000 // 900. Default - 120
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,20695A14,extended,42200000 // 40. Default - 15
 
 [High Chase Camera]
 author=thefirefox12537 (Ported from Silent)
@@ -169,8 +177,8 @@ patch=1,EE,2061874C,extended,00060014
 [60 FPS]
 author=PeterDelta & Duchi/Vyerq
 description=Unlock the motion races or menus it not the 60 FPS.
-patch=1,EE,0060FC64,extended,01 // Photo Mode
-patch=1,EE,203CB134,extended,01 // Pit Crew
+patch=1,EE,0060FC64,byte,1 // Photo Mode
+patch=1,EE,203CB134,byte,1 // Pit Crew
 
 [Remove Boke-blur Effects]
 author=Duchi/Vyerq

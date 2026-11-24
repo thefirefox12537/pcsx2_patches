@@ -47,10 +47,10 @@ patch=1,EE,2017EA04,short,4337 // Rearview mirror box horizontal size
 patch=1,EE,201CB048,short,3F1A // CarFace width modifier in dealership
 patch=1,EE,2022A190,short,3F1A // ModelFace after license completion
 //patch=1,EE,2034FD04,word,3F8B506B // Rearview field of view
-patch=1,EE,2034FD74,word,C3520000 // HUD Canvas resizing
-patch=1,EE,2034FD78,word,44548000
-patch=1,EE,2034FFC8,word,C3520000 // Pause menu & race results canvas resizing
-patch=1,EE,2034FFCC,word,44548000
+patch=1,EE,2034FD76,short,C352 // HUD Canvas resizing
+patch=1,EE,2034FD7A,short,4454
+patch=1,EE,2034FFCA,short,C352 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCE,short,4454
 ; Corrects the text aspect ratio
 patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
 patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
@@ -95,10 +95,10 @@ patch=1,EE,2017EA04,short,4337 // Rearview mirror box horizontal size
 patch=1,EE,201CB048,short,3F12 // CarFace width modifier in dealership
 patch=1,EE,2022A190,short,3F12 // ModelFace after license completion
 //patch=1,EE,2034FD04,word,3F8B506B // Rearview field of view
-patch=1,EE,2034FD74,word,C36D0000 // HUD Canvas resizing
-patch=1,EE,2034FD78,word,445B4000
-patch=1,EE,2034FFC8,word,C36D0000 // Pause menu & race results canvas resizing
-patch=1,EE,2034FFCC,word,445B4000
+patch=1,EE,2034FD74,short,C36D // HUD Canvas resizing
+patch=1,EE,2034FD78,short,445B
+patch=1,EE,2034FFC8,short,C36D // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,short,445B
 ; Corrects the text aspect ratio
 patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
 patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
@@ -143,10 +143,10 @@ patch=1,EE,2017EA04,short,42B4 // Rearview mirror box horizontal size
 //patch=1,EE,201CB048,short,3EC0 // CarFace width modifier in dealership (Optional)
 patch=1,EE,2022A190,short,3EC0 // ModelFace after license completion
 patch=1,EE,2034FD04,word,3F092329 // Rearview field of view
-patch=1,EE,2034FD74,word,C4040000 // HUD Canvas resizing
-patch=1,EE,2034FD78,word,44920000
-patch=1,EE,2034FFC8,word,C4040000 // Pause menu & race results canvas resizing
-patch=1,EE,2034FFCC,word,44920000
+patch=1,EE,2034FD74,short,C404 // HUD Canvas resizing
+patch=1,EE,2034FD78,short,4492
+patch=1,EE,2034FFC8,short,C404 // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,short,4492
 ; Corrects the text aspect ratio
 patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
 patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
@@ -191,10 +191,10 @@ patch=1,EE,2017EA04,short,4270 // Rearview mirror box horizontal size
 //patch=1,EE,201CB048,short,3E80 // CarFace width modifier in dealership (Optional)
 patch=1,EE,2022A190,short,3E80 // ModelFace after license completion
 patch=1,EE,2034FD04,word,3EB6D98C // Rearview field of view
-patch=1,EE,2034FD74,word,C46E0000 // HUD Canvas resizing
-patch=1,EE,2034FD78,word,44C70000
-patch=1,EE,2034FFC8,word,C46E0000 // Pause menu & race results canvas resizing
-patch=1,EE,2034FFCC,word,44C70000
+patch=1,EE,2034FD74,short,C46E // HUD Canvas resizing
+patch=1,EE,2034FD78,short,44C7
+patch=1,EE,2034FFC8,short,C46E // Pause menu & race results canvas resizing
+patch=1,EE,2034FFCC,short,44C7
 ; Corrects the text aspect ratio
 patch=1,EE,2023CBD4,extended,08124DC8 // j 0x00493720
 patch=1,EE,20493720,extended,3C09002F // lui t1,0x002F
@@ -269,6 +269,22 @@ description=Remove the distant white haze.
 patch=1,EE,201A81D8,extended,3C0F7FFF
 patch=1,EE,201A81E4,extended,448F6000
 
+[Stiff Chase Camera (GT4-style)]
+author=Blitznoz
+description=Makes the exterior camera stiffen when turn like GT4.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,20352960,extended,42F00000 // 120. Default - 30
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,20352968,extended,41700000 // 15. Default - 10
+
+[Stiff Chase Camera (GT7-style)]
+author=thefirefox12537 (Original from Blitznoz)
+description=Makes the exterior camera stiffen when turn like GT7.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,20352960,extended,44610000 // 900. Default - 30
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,20352968,extended,42200000 // 40. Default - 10
+
 [Metric Units]
 author=Silent
 description=Change units to Metric measurement format.
@@ -295,3 +311,14 @@ patch=1,EE,20211014,extended,00000000 // Input multiplier
 author=Aero_
 description=Reduces the strength of the controller's vibration.
 patch=1,EE,201DF498,extended,3C014170 // lui at,0x4170 : Vibration Float
+
+[FoV Adjustment]
+author=Blitznoz (Ported from Duchi/Vyerq)
+comment=Press R3 + D-Pad UP/DN to adjust distance view, press L3 + R3 to revert.
+description=Adjusting the Field of View distance camera.
+patch=1,EE,D02EA812,extended,0000FFEB
+patch=1,EE,30200001,extended,00200288
+patch=1,EE,D02EA812,extended,0000FFBB
+patch=1,EE,30300001,extended,00200288
+patch=1,EE,D02EA812,extended,0000FFF9
+patch=1,EE,20200288,extended,3C013F80

@@ -13,7 +13,7 @@ description=90% margin safe area on HUD.
 gsaspectratio=16:9
 patch=1,EE,00350AF4,short,3F88 // HUD safe area
 patch=1,EE,0035091C,short,01F2 // HUD text height
-patch=1,EE,003547D4,word,3C013F2D // HUD text width
+patch=1,EE,003547D4,short,3F2D // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,204615FC,extended,3C013F40 // lui at, 0x3F40
 patch=1,EE,20461600,extended,34210000 // ori at, 0x0000
@@ -24,7 +24,7 @@ description=Widescreen Hacks to aspect ratio 16:10.
 gsaspectratio=Stretch
 patch=1,EE,20827068,word,3F68AB7E // "Aspect" to 0.90
 patch=1,EE,2082706C,word,3F68AB7E // "Overscan Factor" to 0.90
-patch=1,EE,0017AE04,word,3C013F55 // ModelFaces
+patch=1,EE,0017AE04,short,3F55 // ModelFaces
 patch=1,EE,003508FC,short,4405 // HUD height
 patch=1,EE,0035091C,short,01F2 // HUD text height
 patch=1,EE,003547B4,short,C356 // HUD vertical position
@@ -37,16 +37,16 @@ author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
 description=Ultrawidescreen Hacks for 20:9 (Mobile Aspect Ratio).
 gsaspectratio=Stretch
 patch=1,EE,00827B68,word,3FA03F4F // "Aspect" to 1.25
-patch=1,EE,0017AE04,word,3C013F1A // ModelFaces
-patch=1,EE,00102480,word,3C0143C8 // Loading spinner
-patch=1,EE,00102498,word,3C01C3C8
-patch=1,EE,00102600,word,3C01C3C8 // Loading image
-patch=1,EE,00102608,word,3C0143C8
-patch=1,EE,00102610,word,3C01C380
-patch=1,EE,00102618,word,3C014380
-patch=1,EE,003508BC,word,3C01C41D // HUD canvas
-patch=1,EE,003508F0,word,3C0143D2
-patch=1,EE,003547D4,word,3C013F1A // HUD text width
+patch=1,EE,0017AE04,short,3F1A // ModelFaces
+patch=1,EE,00102480,short,43C8 // Loading spinner
+patch=1,EE,00102498,short,C3C8
+patch=1,EE,00102600,short,C3C8 // Loading image
+patch=1,EE,00102608,short,43C8
+patch=1,EE,00102610,short,C380
+patch=1,EE,00102618,short,4380
+patch=1,EE,003508BC,short,C41D // HUD canvas
+patch=1,EE,003508F0,short,43D2
+patch=1,EE,003547D4,short,3F1A // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,204615FC,extended,3C013F24 // lui at,0x3F24
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
@@ -56,16 +56,16 @@ author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 21:9.
 gsaspectratio=Stretch
 patch=1,EE,20827068,word,3FA8427E // "Aspect" to 1.31
-patch=1,EE,0017AE04,word,3C013F12 // ModelFaces
-patch=1,EE,00102480,word,3C0143D2 // Loading spinner
-patch=1,EE,00102498,word,3C01C3D2
-patch=1,EE,00102600,word,3C01C3D2 // Loading image
-patch=1,EE,00102608,word,3C0143D2
-patch=1,EE,00102610,word,3C01C374
-patch=1,EE,00102618,word,3C014374
-patch=1,EE,003508BC,word,3C01C429 // HUD canvas
-patch=1,EE,003508F0,word,3C0143DF
-patch=1,EE,003547D4,word,3C013F12 // HUD text width
+patch=1,EE,0017AE04,short,3F12 // ModelFaces
+patch=1,EE,00102480,short,43D2 // Loading spinner
+patch=1,EE,00102498,short,C3D2
+patch=1,EE,00102600,short,C3D2 // Loading image
+patch=1,EE,00102608,short,43D2
+patch=1,EE,00102610,short,C374
+patch=1,EE,00102618,short,4374
+patch=1,EE,003508BC,short,C429 // HUD canvas
+patch=1,EE,003508F0,short,43DF
+patch=1,EE,003547D4,short,3F12 // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,204615FC,extended,3C013F1C // lui at,0x3F1C
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
@@ -75,16 +75,16 @@ author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 32:9.
 gsaspectratio=Stretch
 patch=1,EE,20827068,word,40000000 // "Aspect" to 2.00
-patch=1,EE,0017AE04,word,3C013EC0 // ModelFaces
-patch=1,EE,00102480,word,3C014420 // Loading spinner
-patch=1,EE,00102498,word,3C01C420
-patch=1,EE,00102600,word,3C01C420 // Loading image
-patch=1,EE,00102608,word,3C014420
-patch=1,EE,00102610,word,3C01C320
-patch=1,EE,00102618,word,3C014320
-patch=1,EE,003508BC,word,3C01C4A0 // HUD canvas
-patch=1,EE,003508F0,word,3C01443B
-patch=1,EE,003547D4,word,3C013EC0 // HUD text width
+patch=1,EE,0017AE04,short,3EC0 // ModelFaces
+patch=1,EE,00102480,short,4420 // Loading spinner
+patch=1,EE,00102498,short,C420
+patch=1,EE,00102600,short,C420 // Loading image
+patch=1,EE,00102608,short,4420
+patch=1,EE,00102610,short,C320
+patch=1,EE,00102618,short,4320
+patch=1,EE,003508BC,short,C4A0 // HUD canvas
+patch=1,EE,003508F0,short,443B
+patch=1,EE,003547D4,short,3EC0 // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,204615FC,extended,3C013ECD // lui at,0x3ECD
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
@@ -94,16 +94,16 @@ author=thefirefox12537 (Ported from GT4-OPB UWS by Silentwarior112)
 description=Ultrawidescreen Hacks to aspect ratio 48:9.
 gsaspectratio=Stretch
 patch=1,EE,20827068,word,40400000 // "Aspect" to 3.00
-patch=1,EE,0017AE04,word,3C013E80 // ModelFaces
-patch=1,EE,00102480,word,3C0143D2 // Loading spinner
-patch=1,EE,00102498,word,3C01C3D2
-patch=1,EE,00102600,word,3C01C3D2 // Loading image
-patch=1,EE,00102608,word,3C0143D2
-patch=1,EE,00102610,word,3C01C374
-patch=1,EE,00102618,word,3C014374
-patch=1,EE,003508BC,word,3C01C507 // HUD canvas
-patch=1,EE,003508F0,word,3C014495
-patch=1,EE,003547D4,word,3C013E80 // HUD text width
+patch=1,EE,0017AE04,short,3E80 // ModelFaces
+patch=1,EE,00102480,short,43D2 // Loading spinner
+patch=1,EE,00102498,short,C3D2
+patch=1,EE,00102600,short,C3D2 // Loading image
+patch=1,EE,00102608,short,43D2
+patch=1,EE,00102610,short,C374
+patch=1,EE,00102618,short,4374
+patch=1,EE,003508BC,short,C507 // HUD canvas
+patch=1,EE,003508F0,short,4495
+patch=1,EE,003547D4,short,3E80 // HUD text width
 ; Corrects the text aspect ratio
 patch=1,EE,204615FC,extended,3C013E89 // lui at,0x3E89
 patch=1,EE,20461600,extended,34210000 // ori at,0x0000
@@ -141,11 +141,17 @@ description=Makes the exterior camera looser when turn like GT3 A-Spec.
 ; even stiffer (like in GT5/6), increase the damper value.
 ;
 ; Camera damper, higher values make the camera center quicker
-patch=1,EE,1058499A,extended,1E1E // 30. Default - 120
-patch=1,EE,1058499C,extended,1E1E
+patch=1,EE,1058499A,extended,1E1E1E1E // 30. Default - 120
 ; Camera max angle, higher values make the camera lean further to the sides
-patch=1,EE,1058499E,extended,0A0A // 10. Default - 15
-patch=1,EE,105849A0,extended,0A0A
+patch=1,EE,1058499E,extended,0A0A0A0A // 10. Default - 15
+
+[Stiff Chase Camera]
+author=thefirefox12537 (Original from Silent)
+description=Makes the exterior camera stiffen when turn like GT7.
+; Camera damper, higher values make the camera center quicker
+patch=1,EE,1058499A,extended,FFFFFFFF // 255 (Maximum). Default - 120
+; Camera max angle, higher values make the camera lean further to the sides
+patch=1,EE,1058499E,extended,0C0C0C0C // 12. Default - 15
 
 [High Chase Camera]
 author=Silent
